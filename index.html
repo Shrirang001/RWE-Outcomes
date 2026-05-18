@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RWE Outcomes — Senior Analyst Interview Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0d0f14;
+  --surface: #13161e;
+  --surface2: #1a1e2a;
+  --border: #242836;
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-soft: rgba(192,57,43,0.12);
+  --teal: #1abc9c;
+  --teal-soft: rgba(26,188,156,0.1);
+  --amber: #f39c12;
+  --amber-soft: rgba(243,156,18,0.1);
+  --purple: #8e44ad;
+  --purple-soft: rgba(142,68,173,0.1);
+  --blue: #2980b9;
+  --blue-soft: rgba(41,128,185,0.1);
+  --text: #e8eaf0;
+  --text-muted: #7a8098;
+  --text-dim: #4a5068;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Libre Baskerville', serif;
+  --sans: 'Manrope', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7;min-height:100vh}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(13,15,20,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap}
+.nav-inner{display:flex;align-items:center;gap:0;max-width:1100px;margin:0 auto;padding:0 20px}
+.nav-logo{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:2px;padding:14px 20px 14px 0;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0}
+.nav-btn{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);padding:14px 14px;border:none;background:none;cursor:pointer;transition:color 0.2s;border-bottom:2px solid transparent;flex-shrink:0}
+.nav-btn:hover{color:var(--text)}
+.nav-btn.active{color:var(--accent2);border-bottom:2px solid var(--accent2)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d0f14 0%,#1a0a0a 50%,#0d0f14 100%);padding:48px 40px 36px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(192,57,43,0.15) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent2);margin-bottom:14px}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--accent2);font-style:italic}
+.hero p{color:var(--text-muted);max-width:640px;font-size:15px;margin-bottom:24px;line-height:1.75}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px}
+.badge{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:4px}
+.badge-red{background:rgba(192,57,43,0.07);border:1px solid rgba(192,57,43,0.35);color:var(--accent2)}
+.badge-teal{background:rgba(26,188,156,0.07);border:1px solid rgba(26,188,156,0.35);color:var(--teal)}
+.badge-amber{background:rgba(243,156,18,0.07);border:1px solid rgba(243,156,18,0.35);color:var(--amber)}
+.badge-purple{background:rgba(142,68,173,0.07);border:1px solid rgba(142,68,173,0.35);color:var(--purple)}
+.badge-blue{background:rgba(41,128,185,0.07);border:1px solid rgba(41,128,185,0.35);color:var(--blue)}
+
+/* LAYOUT */
+.content-wrap{max-width:1100px;margin:0 auto;padding:40px 40px 80px}
+.section{display:none}
+.section.active{display:block}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+@media(max-width:768px){.grid-2,.grid-3{grid-template-columns:1fr}.nav-inner{padding:0 12px}.hero,.content-wrap{padding-left:16px;padding-right:16px}}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px}
+.card-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px}
+.card h3{font-family:var(--sans);font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text)}
+.card p,.card li{font-size:14px;color:var(--text-muted);line-height:1.75}
+.card ul{padding-left:18px}
+.card ul li{margin-bottom:4px}
+
+/* INFO BOXES */
+.info-box{border-radius:6px;padding:14px 18px;margin:12px 0;font-size:14px;line-height:1.7}
+.info-box.teal{border-left:3px solid var(--teal);background:var(--teal-soft);color:var(--text-muted)}
+.info-box.amber{border-left:3px solid var(--amber);background:var(--amber-soft);color:var(--text-muted)}
+.info-box.red{border-left:3px solid var(--accent2);background:var(--accent-soft);color:var(--text-muted)}
+.info-box.purple{border-left:3px solid var(--purple);background:var(--purple-soft);color:var(--text-muted)}
+.info-box.blue{border-left:3px solid var(--blue);background:var(--blue-soft);color:var(--text-muted)}
+.info-box strong{color:var(--text)}
+
+/* SECTION HEADERS */
+.section-header{margin-bottom:28px}
+.section-header h2{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:8px}
+.section-header p{color:var(--text-muted);font-size:14px;max-width:700px}
+.section-divider{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* OUTCOME BLOCK */
+.outcome-block{margin-bottom:36px}
+.outcome-title{font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.outcome-num{font-family:var(--mono);font-size:11px;color:var(--accent2);background:var(--accent-soft);padding:3px 8px;border-radius:3px}
+.outcome-subtitle{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;background:var(--surface);font-size:14px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);padding:10px 14px;border-bottom:1px solid var(--border);text-align:left;background:var(--surface2)}
+td{color:var(--text-muted);padding:10px 14px;border-bottom:1px solid rgba(36,40,54,0.5);vertical-align:top;line-height:1.6}
+tr:hover td{background:rgba(255,255,255,0.02)}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--text)}
+
+/* ACCORDION */
+.accordion{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.acc-q{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;cursor:pointer;background:var(--surface);font-size:14px;font-weight:600;color:var(--text);transition:background 0.2s;user-select:none}
+.acc-q:hover{background:var(--surface2)}
+.acc-arrow{font-family:var(--mono);color:var(--accent2);transition:transform 0.25s;font-size:16px}
+.accordion.open .acc-arrow{transform:rotate(90deg)}
+.acc-a{display:none;padding:16px 20px;border-top:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:14px;line-height:1.75}
+.accordion.open .acc-a{display:block}
+
+/* STAT CARD */
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px;text-align:center}
+.stat-val{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--accent2);line-height:1.2;margin-bottom:4px}
+.stat-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
+
+/* DATA SOURCE BADGE */
+.ds-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.ds-badge{font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:3px}
+.ds-ehr{background:rgba(26,188,156,0.1);border:1px solid rgba(26,188,156,0.3);color:var(--teal)}
+.ds-claims{background:rgba(41,128,185,0.1);border:1px solid rgba(41,128,185,0.3);color:var(--blue)}
+.ds-both{background:rgba(142,68,173,0.1);border:1px solid rgba(142,68,173,0.3);color:var(--purple)}
+.ds-registry{background:rgba(243,156,18,0.1);border:1px solid rgba(243,156,18,0.3);color:var(--amber)}
+
+/* DATA SOURCE COMPARISON TABLE */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.cmp-col{background:var(--surface)}
+.cmp-col-hdr{padding:12px 16px;font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--border);background:var(--surface2)}
+.cmp-col-hdr.ehr{color:var(--teal)}
+.cmp-col-hdr.claims{color:var(--blue)}
+.cmp-col-hdr.aspect{color:var(--text-dim)}
+.cmp-item{padding:10px 16px;font-size:13px;color:var(--text-muted);border-bottom:1px solid rgba(36,40,54,0.4);line-height:1.55}
+.cmp-item:last-child{border-bottom:none}
+@media(max-width:768px){.cmp-grid{grid-template-columns:1fr}}
+
+/* PILL */
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:3px;margin:2px}
+
+/* FORMULA BOX */
+.formula{background:#0a0c10;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:14px 0}
+.formula-hdr{background:var(--surface2);border-bottom:1px solid var(--border);padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between}
+.formula pre{font-family:var(--mono);font-size:12.5px;line-height:1.75;padding:20px;color:#c3e88d;overflow-x:auto}
+.formula pre .kw{color:#c792ea}
+.formula pre .fn{color:#82aaff}
+.formula pre .cm{color:#546e7a;font-style:italic}
+.formula pre .num{color:#f78c6c}
+.formula pre .op{color:#89ddff}
+
+/* TAB SYSTEM within section */
+.mini-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:20px}
+.mini-tab{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;transition:color 0.2s}
+.mini-tab:hover{color:var(--text-muted)}
+.mini-tab.active{color:var(--accent2);border-bottom:2px solid var(--accent2)}
+.mini-pane{display:none}
+.mini-pane.active{display:block}
+
+/* EXAMPLE TAG */
+.ex-tag{font-family:var(--mono);font-size:10px;padding:2px 8px;background:rgba(192,57,43,0.07);border:1px solid rgba(192,57,43,0.25);color:var(--accent2);border-radius:3px;margin-bottom:8px;display:inline-block}
+.ex-block{background:var(--surface2);border-radius:6px;padding:14px 16px;margin-top:10px;font-size:13.5px;color:var(--text-muted);line-height:1.7;border-left:2px solid var(--accent)}
+
+/* SPACER */
+.spacer{height:24px}
+.spacer-sm{height:12px}
+
+/* KEY CONCEPT HIGHLIGHT */
+.key-concept{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin:12px 0;font-size:14px;color:var(--text-muted);line-height:1.7}
+.key-concept .label{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+
+/* BIAS ALERT */
+.bias-alert{background:rgba(192,57,43,0.06);border:1px solid rgba(192,57,43,0.2);border-radius:6px;padding:14px 18px;margin:12px 0;font-size:13.5px;color:var(--text-muted)}
+.bias-alert .bias-label{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">RWE · PREP</div>
+    <button class="nav-btn active" onclick="showSection('survival')">Survival</button>
+    <button class="nav-btn" onclick="showSection('epi')">Epidemiology</button>
+    <button class="nav-btn" onclick="showSection('tx')">Tx Patterns</button>
+    <button class="nav-btn" onclick="showSection('hcru')">HCRU</button>
+    <button class="nav-btn" onclick="showSection('safety')">Safety</button>
+    <button class="nav-btn" onclick="showSection('pro')">PRO & Functional</button>
+    <button class="nav-btn" onclick="showSection('econ')">Economic</button>
+    <button class="nav-btn" onclick="showSection('methods')">Methods</button>
+    <button class="nav-btn" onclick="showSection('datasources')">Data Sources</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Senior RWE Analyst · Interview Preparation</div>
+    <h1>Real-World Evidence<br/><em>Outcomes Compendium</em></h1>
+    <p>A comprehensive reference covering survival endpoints, epidemiological measures, treatment patterns, HCRU, safety, economic outcomes, and methodological concepts — with EHR vs. claims caveats and oncology examples throughout.</p>
+    <div class="badge-row">
+      <span class="badge badge-red">mTNBC</span>
+      <span class="badge badge-red">HR+/HER2−</span>
+      <span class="badge badge-teal">NSCLC</span>
+      <span class="badge badge-teal">SCLC</span>
+      <span class="badge badge-amber">EHR · Flatiron</span>
+      <span class="badge badge-blue">Claims · PharMetrics+</span>
+      <span class="badge badge-purple">Methodological Rigor</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 1: SURVIVAL -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="survival" class="section active">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 01</div>
+    <h2>Core Time-to-Event & Survival Outcomes</h2>
+    <p>The backbone of oncology RWE. Each endpoint carries unique ascertainment challenges depending on whether data come from EHR platforms like Flatiron or administrative claims like PharMetrics Plus.</p>
+  </div>
+
+  <!-- Data source legend -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-eyebrow">Data Source Legend</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <span class="ds-badge ds-ehr">EHR / Flatiron</span>
+      <span class="ds-badge ds-claims">Claims / PharMetrics+</span>
+      <span class="ds-badge ds-both">Both</span>
+      <span class="ds-badge ds-registry">Registry / Trial</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);margin-top:10px">Badges indicate which data source supports ascertainment of each component of the outcome.</p>
+  </div>
+
+  <!-- OS -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.1</span> Overall Survival (OS)</div>
+    <div class="outcome-subtitle">Time from index date to death from any cause</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Time from <strong>index date</strong> (treatment initiation, diagnosis, or metastatic diagnosis) to death from any cause</li>
+          <li>Gold standard endpoint — unambiguous event, no adjudication needed</li>
+          <li>Censored at end of follow-up / database cutoff / disenrollment</li>
+          <li>Index date choice critically impacts measured OS — must be explicitly defined and consistently applied</li>
+          <li>KM estimator is standard; log-rank test for comparisons; Cox PH for adjusted HRs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Death captured via structured EHR death flag, Social Security Administration (SSA) linkage, or obituary algorithms. Flatiron employs a <strong>real-world mortality</strong> variable combining multiple sources. Completeness ~85–90% but varies by site/region. Deaths outside the health system (home hospice) may be missed, leading to <em>underestimation of mortality</em>.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">PharMetrics+ (commercial) does <strong>not</strong> contain a reliable death field — disenrollment is used as a proxy for death or censoring, which is problematic. Patients who die may drop from the database; this <em>informatively censors</em> the sickest patients. Optum and Medicare claims can be linked to NDI/SSA for true death dates. PharMetrics is generally <strong>weak for OS</strong> as a primary endpoint.</p>
+        <div class="bias-alert" style="margin-top:10px">
+          <div class="bias-label">⚠ Bias Risk</div>
+          Disenrollment ≠ death in commercial claims. Patients may switch plans, retire to Medicare, or die. This informative censoring biases OS estimates upward (survivors appear to live longer than they do).
+        </div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC:</strong> Real-world OS for sacituzumab govitecan (SG) in 2L+ mTNBC from Flatiron EHR cohorts vs. ASCENT trial (~median OS ~11–13 months RW vs 12.1 months trial). Death ascertained via Flatiron mortality variable.<br/><br/>
+      <strong>NSCLC:</strong> Real-world OS for osimertinib 1L EGFR+ NSCLC in Flatiron cohorts showed median OS ~22–26 months, broadly consistent with FLAURA (38.6 months), with lower RWE estimates attributed to broader patient populations including PS 2+ and brain mets.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- PFS -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.2</span> Progression-Free Survival (PFS)</div>
+    <div class="outcome-subtitle">Time from index date to disease progression or death, whichever occurs first</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Composite endpoint: objective progression (RECIST) OR death</li>
+          <li>In trials: radiographic progression by RECIST 1.1 at scheduled scan visits</li>
+          <li>In RWE: <strong>rarely directly observable</strong> — requires proxy definitions</li>
+          <li>Common RWE proxies: next treatment initiation, imaging-documented progression notes, structured oncologist notes</li>
+          <li>Real-world PFS (rwPFS) — increasingly used term to distinguish from trial PFS</li>
+          <li>Shorter than OS; powered to detect treatment differences earlier</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron captures some structured progression flags via NLP-processed notes. However, scan frequency varies (no protocol-mandated schedule), leading to <em>interval censoring</em>. Progression may be noted weeks after it occurred. Flatiron's <strong>rwPFS</strong> is derived from a combination of imaging reports, oncologist notes, and treatment changes — but sensitivity/specificity of NLP varies by tumor type.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Progression is <strong>not directly observable</strong> in claims. No imaging results, no pathology. PFS cannot be credibly estimated from claims alone. TTNT is used as the primary surrogate. Some researchers apply algorithm-based proxies (hospitalization for cancer + treatment change), but validity is low without clinical validation.</p>
+        <div class="bias-alert" style="margin-top:10px">
+          <div class="bias-label">⚠ Key Limitation</div>
+          rwPFS in EHR is subject to lead-time bias if scans are more frequent in one treatment arm (patients on aggressive therapy are scanned more often, appearing to progress sooner — detection bias).
+        </div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2−:</strong> rwPFS for palbociclib + letrozole in Flatiron-based studies ~median 19–22 months vs PALOMA-2 trial PFS 24.8 months. RWE is lower due to inclusion of patients with prior ET exposure, older age, and worse PS.<br/><br/>
+      <strong>NSCLC (EGFR+):</strong> Flatiron-based rwPFS for osimertinib 1L ~14–18 months vs FLAURA 18.9 months. In PharMetrics, TTNT is used instead — gap allowance of 30–60 days between last drug claim and next new agent claim.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- TTNT -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.3</span> Time to Next Treatment (TTNT)</div>
+    <div class="outcome-subtitle">Time from index regimen start to initiation of next systemic therapy</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Index regimen end (last claim/administration) → first claim for a new systemic agent</li>
+          <li>The <strong>workhorse PFS proxy in claims-based RWE</strong></li>
+          <li>Gap allowance: typically 30, 45, or 60 days between last drug claim and treatment start to define end of index regimen — must be pre-specified and clinically justified</li>
+          <li>Death before next treatment: treated as competing event or censored (must specify)</li>
+          <li>Observation-only periods (watchful waiting) can be mistaken for no treatment — requires careful algorithm design</li>
+          <li>Patients who die without receiving next treatment are censored in TTNT — may underestimate treatment failure if death is high</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Strong feasibility in claims — every drug dispensing or administration claim has an NDC/HCPCS code and service date. TTNT algorithm relies on: identifying index regimen drugs, defining a permissible gap, and flagging any new agent post-gap. Main caveats: <strong>gap choice dramatically affects TTNT</strong>; 30 vs 60 days can change median by months in indolent cancers (HR+/HER2−). Oral vs. IV agents have different supply windows affecting gap logic.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">TTNT derivable from structured therapy data in Flatiron's Enhanced dataset. Has advantage of clinical context — can distinguish planned treatment breaks from true progression-driven switches. However, if a patient transitions care to another system, next treatment is invisible.</p>
+        <div class="info-box amber"><strong>Gap Allowance Convention:</strong> 30 days for aggressive tumors (SCLC, mTNBC); 45–60 days for indolent tumors (HR+/HER2−) to account for planned treatment holidays.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC:</strong> TTNT for SG 2L+ in PharMetrics+ claims: median ~6–8 months — consistent with rwPFS from Flatiron (~5–7 months), providing cross-database validation.<br/><br/>
+      <strong>NSCLC:</strong> TTNT after pembrolizumab + platinum doublet 1L in NSCLC — gap of 45 days used; median TTNT ~9–12 months in unselected PD-L1 population. Sensitivity analysis with 30 and 60 day gaps included to assess robustness.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- TTD -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.4</span> Time to Treatment Discontinuation (TTD)</div>
+    <div class="outcome-subtitle">Time from index regimen start to permanent discontinuation of that regimen</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Start of index regimen → end of that regimen (not necessarily start of new one)</li>
+          <li>Patient may stop therapy and receive <strong>no further treatment</strong> — captures hospice/palliative transitions</li>
+          <li>Distinct from TTNT: TTNT requires next treatment; TTD does not</li>
+          <li>Reasons for discontinuation not typically captured: toxicity, progression, patient preference, death — all collapsed</li>
+          <li>For oral agents: last days-supply date + days-supply = administrative end date; if no refill within gap → discontinued</li>
+          <li>For IV agents: last infusion claim date + clinically defined window</li>
+          <li>Competing event: death (patient cannot discontinue if already dead)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Well-captured for oral agents via pharmacy claims (NDC, days supply). For IV, relies on J-code/HCPCS administration claims — site-of-care shifts (e.g., hospital to home infusion) can create apparent gaps. Must account for <strong>drug-specific dosing schedules</strong> (e.g., palbociclib 3 weeks on/1 week off — a 7-day gap is expected and should not trigger discontinuation flag).</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron's structured therapy tables record drug orders and administrations. TTD derivable with higher clinical fidelity — reasons for stopping sometimes captured in unstructured notes (via NLP). However, if a patient stops coming to the clinic, the EHR shows no further activity — ambiguous whether they discontinued or transferred care.</p>
+        <div class="bias-alert" style="margin-top:10px">
+          <div class="bias-label">⚠ Nuance</div>
+          In claims, a patient who is hospitalized and dies may have their last oral prescription fill 30+ days prior — creating artifactual long TTD if the gap is generous.
+        </div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2−:</strong> TTD for olaparib (PARP inhibitor) in BRCA-mutated mBC from pharmacy claims — oral agent, gap of 45 days. Median TTD ~7 months in real-world vs 7.4 months PFS in OlympiAD.<br/><br/>
+      <strong>SCLC:</strong> TTD for atezolizumab + carboplatin/etoposide 1L — IV agents; administration claims tracked via J9023 (atezolizumab) and platinum J-codes. TTD reflects real-world cycle completion rates, which are lower than trial due to toxicity.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- TTP -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.5</span> Time to Progression (TTP)</div>
+    <div class="outcome-subtitle">Time to disease progression only; death is a censoring event (not an event)</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Event = radiographic or clinical progression only</li>
+          <li>Death → patient is <strong>censored</strong> at death date (not counted as event)</li>
+          <li>Conceptually captures tumor biology/drug resistance independent of competing mortality</li>
+          <li>Produces longer estimates than PFS when death rate is high</li>
+          <li>Rarely used as primary endpoint; often complementary</li>
+          <li>When death rates are high (SCLC), TTP and PFS can diverge substantially — TTP is upward-biased</li>
+          <li>Requires competing risks framework for correct interpretation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Feasible in Flatiron if progression is structured/NLP-captured and death date is available from the mortality variable. Requires careful competing risk analysis — Fine-Gray model recommended. Most Flatiron oncology publications report rwPFS (progression or death) rather than TTP separately.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Not feasible</strong> as a direct measure. No progression data. Even as a proxy (TTNT), death before next treatment is typically censored, which superficially resembles TTP logic — but is not the same because the denominator behavior differs. Treat claims-based TTNT as an OS/PFS composite proxy, not a TTP analog.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>NSCLC (Registry):</strong> Flatiron Health registry-based TTP for 2L NSCLC after checkpoint inhibitor failure — used to characterize resistance patterns independent of non-cancer deaths. TTP ~4 months vs PFS ~3.5 months, with divergence driven by CV and non-cancer mortality in older patients.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- EFS -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.6</span> Event-Free Survival (EFS)</div>
+    <div class="outcome-subtitle">Composite — broader than PFS; includes progression, death, treatment failure, AE-driven discontinuation</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Composite of: progression, death, relapse, or treatment failure (depending on study definition)</li>
+          <li>More common in <strong>early-stage / neoadjuvant / curative-intent</strong> settings</li>
+          <li>EFS definition must be pre-specified — event components vary widely across trials/studies</li>
+          <li>Captures clinical benefit more broadly than PFS (patient perspective)</li>
+          <li>In early BC: includes distant recurrence, local recurrence, second primary cancer, and death</li>
+          <li>Requires explicit clinical data to define each component event</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">EFS components (local recurrence, distant metastasis) may be captured via NLP of imaging reports, pathology, and notes. However, early-stage populations in Flatiron are <em>less complete</em> than metastatic cohorts — curative-intent patients are followed less consistently in oncology EHR systems once they go into surveillance. Recurrence ascertainment is a known limitation.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">EFS not directly measurable. Proxy: restart of systemic therapy after curative-intent treatment (surgery + adjuvant → new chemo = potential recurrence signal). Diagnosis codes for metastatic disease (C78.xx, C79.xx) can flag distant relapse but have low sensitivity. Claims are generally <strong>weak for early-stage recurrence endpoints</strong>.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>Early TNBC:</strong> EFS is the primary endpoint in KEYNOTE-522 (pembrolizumab + neoadjuvant chemo). RWE follow-up studies using Flatiron attempt to capture recurrence via restart of systemic therapy or metastatic diagnosis codes — acknowledging incomplete ascertainment. pCR rate (pathologic complete response) from pathology data is more reliably captured in EHR.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- DOR -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.7</span> Duration of Response (DOR)</div>
+    <div class="outcome-subtitle">Among responders only: time from first response (CR/PR) to progression or death</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Defined only in the <strong>responder subpopulation</strong> (CR or PR by RECIST)</li>
+          <li>DOR = date of first documented response → date of progression or death</li>
+          <li>Not an intention-to-treat (ITT) metric — inherently selected population</li>
+          <li>Longer DOR + high response rate = durable clinical benefit</li>
+          <li>Reported alongside ORR (overall response rate) and DCR (disease control rate)</li>
+          <li>Survivor bias caveat: only patients who lived long enough to respond are included</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Response (CR/PR/SD/PD) sometimes captured in structured fields in Flatiron's Enhanced dataset, or derivable via NLP from radiology reports. However, response determination is <em>not protocol-mandated</em> in routine care — scan timing varies, and not all sites record RECIST assessments. Real-world ORR and DOR should be treated as estimates with acknowledgment of missingness. Flatiron's tumor measurement data exists for select tumor types.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Not feasible</strong> to calculate DOR from claims. No imaging results, no response assessments. If DOR is an endpoint of interest, claims data is the wrong source. Researchers sometimes infer "maintained on therapy" as a proxy for response, but this conflates response with tolerability and physician decision-making.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC:</strong> Real-world DOR for SG derived from Flatiron — median DOR ~6 months vs 6.3 months in ASCENT. Requires structured response data; feasibility depends on Flatiron site capture completeness.<br/><br/>
+      <strong>SCLC 2L:</strong> DOR for lurbinectedin from real-world registry data — median DOR ~5.1 months vs 5.3 months in pivotal basket trial. Registry setting (with PRO data) allows better response capture than pure EHR.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- DRFS / RFS -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">1.8</span> Distant Relapse-Free Survival (DRFS) & RFS</div>
+    <div class="outcome-subtitle">Used in early/curative-intent settings; time to distant metastasis or death</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li><strong>DRFS:</strong> time from surgery/treatment start to distant metastatic relapse or death</li>
+          <li><strong>RFS:</strong> includes local + distant relapse + death</li>
+          <li>Used in adjuvant trials to demonstrate sustained benefit post-treatment</li>
+          <li>Long follow-up required (5–10 years in HR+ BC)</li>
+          <li>Requires reliable recurrence ascertainment — the biggest RWE challenge</li>
+          <li>invasive disease-free survival (iDFS) — another variant used in HER2+ adjuvant trials</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Relapse requires a positive signal (imaging finding, biopsy, clinical note). Flatiron can capture metastatic diagnosis codes and treatment restarts. However, surveillance practices vary — patients who are asymptomatic and have their scan at a non-Flatiron site will have no recorded recurrence even if it occurred. <strong>Flatiron is strongest for metastatic cohorts</strong>; early-stage recurrence ascertainment has known incompleteness (~60–70% sensitivity estimated in validation studies).</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Distant relapse proxied by: (1) new metastatic ICD-10 diagnosis code (C78.xx, C79.xx), (2) restart of systemic therapy after ≥6-month treatment-free interval, or (3) radiation to a new site. Positive predictive value for these proxies is moderate; requires clinical validation. Long follow-up is feasible if continuous enrollment maintained — but commercial plan membership often lapses over 5-year horizons.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2−:</strong> DRFS endpoint in monarchE (abemaciclib adjuvant). RWE analyses using claims and Flatiron attempt to replicate DRFS using treatment restart algorithms. Validation of the algorithm against clinical chart review is essential before publication. Known issue: patients moving to Medicare after age 65 are lost from commercial claims — censoring that correlates with time and age.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 2: EPIDEMIOLOGY -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="epi" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 02</div>
+    <h2>Epidemiological Outcomes</h2>
+    <p>Measures of disease frequency, burden, and mortality in populations. Critical for burden-of-illness studies, market sizing, health policy, and contextualization of trial results.</p>
+  </div>
+
+  <!-- Incidence -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">2.1</span> Incidence</div>
+    <div class="outcome-subtitle">Rate of new cases arising in a population at risk over a defined time period</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Types & Mechanics</div>
+        <ul>
+          <li><strong>Crude incidence rate:</strong> new cases / person-time at risk</li>
+          <li><strong>Age-standardized incidence rate (ASIR):</strong> adjusts for age distribution differences between populations; allows cross-country comparison</li>
+          <li><strong>Cumulative incidence (risk):</strong> probability of developing disease over a fixed time horizon (e.g., lifetime risk)</li>
+          <li><strong>Period approach:</strong> cases diagnosed in a calendar period / mid-period population</li>
+          <li><strong>Cohort approach:</strong> follows a birth cohort over time</li>
+          <li>Denominator: population at risk (must exclude prevalent cases)</li>
+        </ul>
+        <div class="info-box teal" style="margin-top:10px"><strong>Incidence vs. Prevalence:</strong> Incidence = new cases (flow); Prevalence = existing cases (stock). Prevalence = Incidence × Duration of disease.</div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Claims-based incidence: require a <strong>clean period</strong> (e.g., 6–12 months enrollment with no prior cancer claim) to exclude prevalent cases. Incident case defined as first cancer diagnosis code (C-code) after clean period. Key limitation: claims represent an insured, commercially active population — <strong>not representative of the general population</strong>. Elderly (Medicare) and uninsured populations excluded. Incidence rates from PharMetrics+ should not be directly compared to SEER rates without adjustment.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron represents a treated oncology population — incidence from Flatiron reflects treatment-seeking patients at academic/community oncology centers. Not population-based. More useful for characterizing <em>treatment-eligible cohort incidence</em> than true population incidence. SEER, national cancer registries, and GLOBOCAN are the gold standards for incidence.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-registry">SEER / Registry</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Gold standard for population-based incidence. SEER covers ~28% of US population. Cancer registry linkages (e.g., SEER-Medicare) allow combining incidence with treatment/outcomes data.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>TNBC:</strong> TNBC accounts for ~15% of all BC cases. Incidence is disproportionately higher in younger women and Black women (SEER data). Age-standardized incidence ~11–13 per 100,000 women in US. Incident cohort definition in claims: first breast cancer (C50.x) code + triple-negative biomarker evidence (IHC via lab codes or oncologist notes in EHR) after 12-month clean period.<br/><br/>
+      <strong>SCLC:</strong> Incidence declining (~6% of all lung cancers now vs 17% in 1980s) due to decreased smoking. ~30,000 new SCLC cases/year in US. Incidence trend analysis using SEER time-series; not reproducible in commercial claims due to elderly population bias.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Prevalence -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">2.2</span> Prevalence</div>
+    <div class="outcome-subtitle">Proportion of a population with the condition at a specific time point or period</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Types & Mechanics</div>
+        <ul>
+          <li><strong>Point prevalence:</strong> proportion with disease at a single point in time</li>
+          <li><strong>Period prevalence:</strong> proportion with disease at any time during a defined period</li>
+          <li><strong>Limited prevalence (5-year):</strong> alive with cancer within 5 years of diagnosis</li>
+          <li><strong>Complete prevalence:</strong> all alive regardless of time since diagnosis</li>
+          <li>Increases with incidence AND with survival improvements (longer patients live → more prevalent cases)</li>
+          <li>Key for market sizing: payer burden, eligible patient population for drug access</li>
+          <li>Denominator: total population (not just at-risk)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Period prevalence feasible: denominator = all continuously enrolled members in a period; numerator = those with ≥1 cancer diagnosis code in same period. <strong>Limitation: commercially insured only</strong>. Metastatic prevalence requires algorithm to distinguish metastatic (C78/C79 codes, or de novo M1 stage code) from early-stage. Subtype prevalence (mTNBC vs HR+/HER2−) requires additional algorithm layers using biomarker codes or drug claims as proxies.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron captures disease stage and biomarker status (ER/PR/HER2 from structured pathology fields). Metastatic status better defined than in claims. However, Flatiron prevalence reflects <em>treated, care-seeking patients</em> at Flatiron-affiliated sites. Not population-representative. Best used for characterizing subtype prevalence within the treated oncology population (e.g., what % of mBC in Flatiron is HR+/HER2−).</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2−:</strong> ~70% of all mBC is HR+/HER2−, making it the largest metastatic BC subtype. 5-year limited prevalence ~400,000+ in US (increasing due to CDK4/6i extending survival). Market sizing: prevalence × treatment rate × market share = commercial opportunity.<br/><br/>
+      <strong>NSCLC by mutation subgroup:</strong> EGFR+ ~15% of NSCLC in US (higher in Asian populations ~40%); ALK+ ~5%; KRAS G12C ~13%. Prevalence by biomarker from Flatiron allows denominator estimation for mutation-specific drug launches (e.g., sotorasib KRAS G12C).
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Mortality -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">2.3</span> Mortality Rate & Cause-Specific Mortality</div>
+    <div class="outcome-subtitle">Population-level death rates; all-cause and cancer-specific</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Types</div>
+        <ul>
+          <li><strong>All-cause mortality rate:</strong> deaths from any cause per 100,000 person-years</li>
+          <li><strong>Cause-specific mortality rate:</strong> deaths attributed to the cancer per 100,000</li>
+          <li><strong>5-year mortality rate:</strong> proportion dying within 5 years of diagnosis</li>
+          <li>Cause of death ascertainment: death certificates (NDI), coded with underlying cause (ICD-10)</li>
+          <li>Death certificate accuracy varies — cause of death may be misattributed (especially for multimorbid patients)</li>
+          <li>Complement of cause-specific survival: 1 − (cause-specific mortality rate)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">All-cause mortality available via Flatiron's mortality variable (SSA/obituary linkage). <strong>Cause-specific mortality is not reliably available</strong> in Flatiron — cause of death coding requires NDI linkage which Flatiron does not routinely provide. All-cause OS is therefore the standard in Flatiron-based studies.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Death not reliably captured</strong> in commercial claims. PharMetrics+ lacks a death variable — disenrollment is confounded with death. Medicare claims linked to NDI/SSA provide cause-specific mortality; this linkage is unavailable in PharMetrics+. <strong>SEER-Medicare</strong> remains the best source for cause-specific mortality research.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>Lung cancer:</strong> SCLC 5-year cause-specific survival ~7% (vs NSCLC ~25%). SCLC cause-specific mortality driving overall lung cancer mortality statistics. Trend analysis using SEER shows NSCLC mortality declining faster than SCLC due to targeted therapy and immunotherapy.<br/><br/>
+      <strong>Breast cancer:</strong> Mortality rate declining across all BC subtypes; TNBC remains highest (cause-specific 5-year mortality ~40% for metastatic TNBC). Disparities: Black women have 40% higher BC mortality than White women despite similar incidence — RWE characterizes this disparity in treatment access and stage at diagnosis.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- SMR -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">2.4</span> Standardized Mortality Ratio (SMR)</div>
+    <div class="outcome-subtitle">Ratio of observed deaths in the study cohort to deaths expected based on the general population</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <div class="formula">
+          <div class="formula-hdr"><span>SMR Formula</span></div>
+          <pre><span class="kw">SMR</span> <span class="op">=</span> <span class="fn">Observed Deaths</span> <span class="op">/</span> <span class="fn">Expected Deaths</span>
+
+<span class="cm">// Expected deaths = Σ(person-time × age/sex-specific</span>
+<span class="cm">//                    general population mortality rate)</span>
+
+<span class="kw">SMR</span> <span class="op">></span> <span class="num">1.0</span> <span class="cm">// Excess mortality vs general population</span>
+<span class="kw">SMR</span> <span class="op">=</span> <span class="num">1.0</span> <span class="cm">// Same mortality as general population</span>
+<span class="kw">SMR</span> <span class="op"><</span> <span class="num">1.0</span> <span class="cm">// Lower mortality (healthy worker effect)</span></pre>
+        </div>
+        <ul style="margin-top:8px">
+          <li>Used in long-term survivorship studies and burden of illness</li>
+          <li>Accounts for age, sex distribution differences between cohort and general population</li>
+          <li>Requires death ascertainment AND person-time denominator</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Feasible if Flatiron's mortality variable is used for observed deaths. Expected deaths calculated from CDC/NVSS national life tables stratified by age/sex/race. Limitation: Flatiron mortality completeness may cause underestimation of observed deaths → artificially low SMR.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Not feasible</strong> without death linkage. Disenrollment-based death proxies would severely bias SMR calculation. SEER-Medicare or Optum-NDI linked datasets are appropriate for SMR studies.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2− long-term survivors:</strong> SMR analysis in patients who achieve 5-year remission on endocrine therapy — does mortality return to that of the general population? Long-term Flatiron + SSA linkage cohort: SMR ~2.1 at 5 years, declining toward 1.4 at 10 years, suggesting persistent excess mortality even in good-prognosis survivors.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- CFR -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">2.5</span> Case Fatality Rate (CFR)</div>
+    <div class="outcome-subtitle">Proportion of diagnosed cases who die within a specified time period</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>CFR = Deaths from disease / Total confirmed cases in same period × 100</li>
+          <li>Measures severity conditional on diagnosis — different from mortality rate (which is population-based)</li>
+          <li>Time-bound: 30-day CFR, 1-year CFR — must specify window</li>
+          <li>CFR is sensitive to <strong>detection bias</strong>: if mild cases are undiagnosed, CFR appears higher</li>
+          <li>Commonly used in acute/infectious settings; in oncology, applied to hospitalization events or rapid fatal presentations</li>
+          <li>In oncology RWE: useful for characterizing ICU admission fatality, post-surgical mortality, febrile neutropenia mortality</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-both">Both — with Caveats</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>EHR:</strong> In-hospital CFR calculable if hospital admission and death during same encounter are captured. Flatiron's inpatient data is limited — primarily outpatient oncology. Hospital CFR better from linked EHR (Epic) or hospital administrative data.</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>Claims:</strong> 30-day in-hospital mortality proxied by inpatient claim followed by no subsequent claims within 30 days + disenrollment. More reliable in Medicare (where death is better captured) than PharMetrics+.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>COVID-19 oncology impact:</strong> CFR for cancer patients hospitalized with COVID-19 vs. general population — used to quantify excess mortality burden in NSCLC and mBC cohorts during pandemic. RWE studies from hospital EHR systems (Epic) showed oncology patients had 2–3× higher 30-day CFR than non-cancer patients.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 3: TREATMENT PATTERNS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="tx" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 03</div>
+    <h2>Treatment Pattern Outcomes</h2>
+    <p>How patients receive, persist on, and transition through therapies in real-world practice — distinct from controlled trial protocols.</p>
+  </div>
+
+  <!-- LOT -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">3.1</span> Line of Therapy (LOT)</div>
+    <div class="outcome-subtitle">Algorithmic classification of treatment sequence in metastatic/advanced disease</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>LOT = ordinal position of a regimen in treatment sequence (1L, 2L, 3L+)</li>
+          <li>Algorithm-based in claims: combination of drugs started within a defined window (e.g., 28 days) = a regimen; next new agent after gap = new LOT</li>
+          <li>Key parameters: gap days to define regimen end (30–60 days), permissible agents within LOT (drugs considered part of same regimen vs augmentation)</li>
+          <li>LOT definitions differ by tumor type — must be disease-specific and clinically validated</li>
+          <li>Sample size drops sharply at higher LOTs — power implications for 3L+ analyses</li>
+          <li>Maintenance therapy classification: typically kept within same LOT unless new induction agent added</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron's Enhanced dataset includes a <strong>pre-built LOT variable</strong> derived by their clinical team — a significant advantage. However, the algorithm is proprietary and may not match sponsor-defined LOT logic. Researchers must understand Flatiron's LOT algorithm assumptions and validate against study-specific definitions. Treatment intent (adjuvant vs. metastatic) is better captured in EHR than claims.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">LOT must be constructed by the analyst from pharmacy and medical claims. Requires drug lists by LOT (e.g., which agents are 1L-appropriate per NCCN), gap logic, and combination rules. Main challenge: <strong>adjuvant vs. metastatic intent is indistinguishable</strong> without diagnosis coding context. A patient receiving palbociclib may be getting it adjuvant (monarchE) or metastatic — only context (stage codes, treatment patterns) helps differentiate.</p>
+        <div class="bias-alert"><div class="bias-label">⚠ Common Error</div>Counting patients as 1L when they actually had prior adjuvant chemotherapy that should count as a line — inflates 1L population and underestimates later-line treatment burden.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC LOT distribution:</strong> ~60% receive 1L capecitabine/gemcitabine/carboplatin; ~35% reach 2L; ~15% reach 3L+ (sharp attrition). SG is approved 2L+ — understanding LOT distribution critical for market access modeling.<br/><br/>
+      <strong>NSCLC by biomarker:</strong> EGFR+ patients: osimertinib 1L → platinum-based 2L (if T790M−) or novel combinations. Unselected NSCLC: pembrolizumab ± chemo 1L → docetaxel ± ramucirumab 2L. LOT distribution from Flatiron shows ~45% of NSCLC patients in claims do not reach 2L — highlights the curative gap.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- TTI -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">3.2</span> Time to Treatment Initiation (TTI)</div>
+    <div class="outcome-subtitle">Time from diagnosis (or metastatic diagnosis) to first systemic treatment</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Diagnosis date → first systemic therapy claim/order</li>
+          <li>Surrogate for: diagnostic delays, system access barriers, biomarker testing turnaround</li>
+          <li>Key in disparities research: TTI longer in rural, Black, uninsured, lower socioeconomic status populations</li>
+          <li>In NSCLC: TTI affected by EGFR/ALK testing turnaround — patients awaiting results may start chemo earlier or be delayed appropriately</li>
+          <li>TTI should distinguish: watch-and-wait (clinical decision) vs. system delay (access barrier)</li>
+          <li>TTI > 30 days post-diagnosis associated with worse OS in aggressive tumors (TNBC, SCLC)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Diagnosis date from pathology report or first oncology visit; treatment date from order/administration record. TTI well-calculable in Flatiron. Additional advantage: ECOG PS and molecular testing dates available, allowing investigation of <em>why</em> TTI is prolonged. Site-level TTI variation can identify disparate care delivery patterns.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Diagnosis date = first cancer ICD-10 claim date. May precede true diagnosis if codes are used for rule-out, or lag if patient was diagnosed outside the claims system. Treatment date = first drug claim. TTI calculable but <strong>diagnosis date accuracy is a major limitation</strong> — may require ≥2 claims over ≥30 days to confirm diagnosis. Biomarker testing turnaround not observable in PharMetrics+.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>TNBC:</strong> Despite aggressive biology requiring prompt treatment, TTI in TNBC among uninsured patients is ~6–8 weeks vs ~2–3 weeks in insured patients (Flatiron-based disparities analysis). TTI > 60 days associated with stage migration and worse survival outcomes.<br/><br/>
+      <strong>NSCLC (EGFR+):</strong> Median TTI for EGFR+ NSCLC patients receiving osimertinib 1L: ~3–4 weeks (includes biomarker testing time). Claims-based analysis: patients whose first claim is for an EGFR TKI have a shorter TTI than those starting platinum-based chemo first — may reflect testing-driven treatment selection.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Adherence & Persistence -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">3.3 & 3.4</span> Persistence & Medication Adherence</div>
+    <div class="outcome-subtitle">How long patients stay on therapy and how consistently they take it</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Persistence</div>
+        <ul>
+          <li>Proportion remaining on index therapy at specified time points (6, 12, 18 months)</li>
+          <li>KM persistence curve from treatment start to discontinuation</li>
+          <li>Complementary to TTD — uses same data, different framing</li>
+          <li>1-year persistence rate: key payer/manufacturer metric</li>
+        </ul>
+        <div class="card-eyebrow" style="margin-top:16px">Adherence (Oral Agents)</div>
+        <ul>
+          <li><strong>MPR (Medication Possession Ratio):</strong> sum of days supply / observation period days × 100. Simple; does not account for early discontinuation</li>
+          <li><strong>PDC (Proportion of Days Covered):</strong> days with medication available / observation period days × 100. <em>Preferred</em> — does not double-count early refills</li>
+          <li>Adherence threshold: ≥80% PDC = adherent (standard)</li>
+          <li>Only measurable for <strong>oral agents</strong> via pharmacy claims</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Pharmacy claims are the <strong>gold standard for adherence measurement</strong> of oral agents. Days supply is recorded at each dispensing — PDC and MPR calculable directly. Limitation: claims capture dispensing, not ingestion — patient may pick up the medication but not take it (pill burden, side effects). Specialty pharmacy claims may be in a separate channel (excluded from some claims databases) — check for channel completeness.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Adherence <strong>cannot be measured</strong> from EHR medication orders alone — an order does not confirm dispensing or ingestion. Flatiron captures infusion administration (IV agents — adherence proxied by administration records), but oral adherence is not measurable. Persistence (time to discontinuation of therapy) is derivable from the structured therapy table.</p>
+        <div class="info-box amber"><strong>PDC vs MPR:</strong> For a patient who refills early, MPR > 100% (overcounts supply); PDC caps at the observation window — always prefer PDC for adherence reporting.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2− CDK4/6i:</strong> 12-month PDC comparison: palbociclib ~72%, ribociclib ~75%, abemaciclib ~68% in real-world claims (higher toxicity burden with abemaciclib driving lower adherence). Adherence differences between agents not observed in head-to-head trials — RWE uniquely quantifies this.<br/><br/>
+      <strong>mTNBC capecitabine:</strong> PDC ~65% in real-world — significantly lower than expected, driven by dose reductions (days supply counted as same regardless of dose) and hand-foot syndrome. Dose reduction confounds PDC measurement.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- RDI -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">3.5</span> Relative Dose Intensity (RDI)</div>
+    <div class="outcome-subtitle">Delivered dose relative to planned (protocol) dose — a proxy for treatment exposure and tolerability</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <div class="formula">
+          <div class="formula-hdr"><span>RDI Formula</span></div>
+          <pre><span class="kw">RDI</span> <span class="op">=</span> (<span class="fn">Delivered dose / unit time</span>) <span class="op">/</span>
+       (<span class="fn">Protocol dose / unit time</span>) <span class="op">×</span> <span class="num">100</span><span class="op">%</span>
+
+<span class="cm">// RDI < 85% associated with worse outcomes</span>
+<span class="cm">// in adjuvant chemotherapy (breast, lung)</span></pre>
+        </div>
+        <ul style="margin-top:8px">
+          <li>Captures combined effect of dose reductions AND treatment delays</li>
+          <li>RDI < 85%: clinically significant — associated with worse survival in curative-intent therapy</li>
+          <li>Particularly relevant for myelosuppressive regimens (platinum, anthracyclines)</li>
+          <li>G-CSF use as supportive care affects RDI maintenance</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Administered dose recorded in infusion administration records in Flatiron. BSA-based dosing calculations possible. <strong>RDI most feasible in EHR</strong> for IV agents — actual delivered mg/m² compared to planned dose. For oral agents, dose recorded in the Flatiron prescription/order but actual dispensed dose requires pharmacy confirmation. NLP can extract dose modification mentions from notes.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">RDI is <strong>difficult to calculate precisely</strong> from claims. Infusion claims (J-codes) include units billed — can estimate mg administered if units × unit cost known. However, dose is often obscured by billing conventions. For oral agents: days supply and pill count from NDC may allow dose estimation if the pill strength is known. Dose reductions typically appear as a change from a higher to lower NDC strength — detectable but indirect.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC — SG:</strong> RDI for sacituzumab govitecan in real-world Flatiron analysis: ~78–82% of patients receive RDI ≥85% in cycle 1; drops to ~65% by cycle 4 due to neutropenia and GI toxicity-driven dose reductions. G-CSF use associated with maintaining higher RDI.<br/><br/>
+      <strong>SCLC — Carboplatin/Etoposide:</strong> RDI monitoring shows ~20% of SCLC patients require dose reductions by cycle 3 in real-world — higher than the ~8% in trial populations, driven by poorer baseline PS and comorbidities in unselected patients.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Switching -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">3.6</span> Treatment Switching & Sequencing</div>
+    <div class="outcome-subtitle">Rates and patterns of therapy transitions across lines of treatment</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Switching rate: proportion of patients moving from index agent to a specific alternative</li>
+          <li>Sequencing: ordered mapping of regimens across LOTs (Sankey diagrams commonly used)</li>
+          <li>Time to switch: subset of TTNT — specifically among switchers</li>
+          <li>Reason for switch: typically <em>not</em> captured in claims (progression, toxicity, patient preference indistinguishable)</li>
+          <li>Cross-over contamination issue: relevant when RWE is used to construct external control arms</li>
+          <li>Early switchers vs late switchers: may reflect different biology or tolerance profiles</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-both">Both — Different Strengths</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>EHR (Flatiron):</strong> Switching context available from clinical notes — NLP can extract documented rationale (toxicity, progression, financial toxicity). Biomarker-driven switching (e.g., T790M+ in EGFR+ NSCLC → osimertinib 2L) identifiable in structured data. Advantage for understanding <em>mechanism</em> of switch.</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>Claims (PharMetrics+):</strong> Switching rates and sequences highly quantifiable — large sample sizes allow Sankey diagram construction with statistical confidence. Cannot determine <em>why</em> patients switch. Specialty pharmacy channel gaps may cause missed drug claims if patient changes pharmacy.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>Post-CDK4/6i HR+/HER2−:</strong> Sequencing from PharMetrics+ claims — after CDK4/6i + AI failure: ~35% → fulvestrant, ~25% → everolimus + exemestane, ~20% → chemotherapy, ~10% → elacestrant (post-approval), ~10% → olaparib (BRCA-mutated). Sankey diagram shows rapid attrition to 3L+.<br/><br/>
+      <strong>Post-platinum SCLC:</strong> 2L sequencing after carboplatin/etoposide + atezolizumab: ~40% → topotecan, ~25% → lurbinectedin, ~15% → clinical trial, ~20% receive no further treatment (PS deterioration / patient choice). These rates markedly different from trial enrollment patterns.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 4: HCRU -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="hcru" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 04</div>
+    <h2>Healthcare Resource Utilization (HCRU)</h2>
+    <p>Measures of care intensity and system burden. Critical for payer value arguments, budget impact models, and comparative effectiveness of treatments with different safety profiles.</p>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:24px">
+    <div class="stat-card"><div class="stat-val">PPPM</div><div class="stat-label">Per Patient Per Month — standard HCRU rate unit</div></div>
+    <div class="stat-card"><div class="stat-val">IPTW</div><div class="stat-label">Inverse Probability Weighting — adjust for confounding in HCRU comparisons</div></div>
+    <div class="stat-card"><div class="stat-val">All-Cause</div><div class="stat-label">vs Cancer-Related HCRU — always report both</div></div>
+    <div class="stat-card"><div class="stat-val">LOS</div><div class="stat-label">Length of Stay — key hospitalization quality metric</div></div>
+  </div>
+
+  <!-- General EHR vs Claims for HCRU -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-eyebrow">Global EHR vs Claims Caveat for HCRU</div>
+    <div class="grid-2" style="margin-top:10px">
+      <div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Claims are the <strong>gold standard for HCRU</strong>. Every billed service — hospitalization, ED visit, outpatient visit, lab, imaging — generates a claim with a date, diagnosis code, and cost. HCRU rates, cost attribution, and comparative analyses are most credible in claims. Cancer-related HCRU defined by primary/secondary ICD-10 diagnosis on the claim (C-code or Z-code follow-up).</p>
+      </div>
+      <div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron captures <strong>only HCRU within the Flatiron-affiliated clinic/hospital system</strong>. Hospitalizations at external systems, ED visits at non-affiliated ERs, and outpatient visits elsewhere are <em>invisible</em>. HCRU from Flatiron is systematically <strong>underestimated</strong>. Flatiron is not the appropriate source for HCRU as a primary endpoint — claims are preferred.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hospitalizations -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">4.1</span> Hospitalizations</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>All-cause vs. cancer-related (defined by primary admission ICD-10 code)</li>
+          <li>Rate: hospitalizations per 100 patient-months (standardizes for follow-up duration)</li>
+          <li>All-cause hospitalization rate = total inpatient admissions / total person-months × 100</li>
+          <li>Readmission rate: hospitalization within 30 days of discharge — quality indicator</li>
+          <li>HCRU index period: during treatment vs. pre-index (baseline) vs. post-progression</li>
+          <li>Planned vs. unplanned hospitalization: unplanned = AE signal; planned = scheduled treatment (distinct clinical meaning)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">Claims-Specific Considerations</div>
+        <p style="font-size:13.5px;color:var(--text-muted)">UB-04 institutional claims identify hospitalizations. Revenue code 0100–0219 = room and board = inpatient stay. Admission and discharge dates define LOS. <strong>Cancer-related:</strong> primary DRG or principal diagnosis = cancer ICD-10 code. Complication-driven admissions (neutropenia, sepsis) classified by principal diagnosis — may be cancer-related even without C-code if Z85 (history of cancer) used.</p>
+        <div class="bias-alert" style="margin-top:10px"><div class="bias-label">⚠ Transfer Bias</div>Multi-hospital transfers appear as separate admissions in claims — must identify and collapse using admission/discharge date logic to avoid inflated admission counts.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC:</strong> All-cause hospitalization rate during SG therapy vs prior chemo in the same patients (pre-post design): ~2.1 vs 3.4 per 100 patient-months — SG associated with fewer hospitalizations despite IV administration, driven by lower febrile neutropenia rate than prior capecitabine (paradoxical, as SG causes neutropenia, but less grade 4).<br/><br/>
+      <strong>SCLC:</strong> Hospitalization rate in SCLC patients on 1L platinum/etoposide + atezolizumab: ~5.8 per 100 patient-months — among highest in solid tumors due to rapid progression, paraneoplastic syndromes (SIADH, Cushing's), and SVCS.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ED -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">4.2</span> Emergency Department (ED) Visits</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>All-cause vs. potentially avoidable (ACSCs — ambulatory care-sensitive conditions)</li>
+          <li>Claims: revenue code 045x (emergency room) on facility claim</li>
+          <li>ED visit without subsequent inpatient admission = outpatient ED visit (less severe)</li>
+          <li>ED-to-inpatient admission rate: proportion of ED visits resulting in hospitalization — severity marker</li>
+          <li>AE-driven ED: identified by principal diagnosis (e.g., G629 for neuropathy, D709 for neutropenia)</li>
+          <li>Rate expressed as visits per 100 patient-months</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Best source for ED visit rates. All ED encounters generate facility claims (UB-04) regardless of outcome. Linked to diagnosis codes — can differentiate cancer-related ED (C-code), AE-related ED (symptom code), or non-cancer ED. <strong>Advantage: captures ED visits at any facility</strong> — not limited to treating oncologist's affiliated hospital.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">ED visits captured only if the patient presents to a Flatiron-affiliated ED. Severely underestimates true ED burden. Flatiron's EHR may show a hospitalization note written by an oncologist who was <em>informed</em> of the ED visit, but the visit itself may not be in the structured data.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>NSCLC — irAE-driven ED:</strong> ED visits with immune-related diagnosis codes (pneumonitis J70.2, colitis K52.3, hepatitis K71.x) in pembrolizumab-treated NSCLC patients: ~1.8 per 100 patient-months in PharMetrics+ claims — 3× higher than in KEYNOTE-024 trial (where irAEs were managed per protocol). Real-world management less structured.<br/><br/>
+      <strong>mTNBC — febrile neutropenia:</strong> ED visits with D70.x (drug-induced neutropenia) + R50.x (fever) in SG-treated mTNBC patients: ~1.1 per 100 patient-months — higher than trial rate (7% FN rate in ASCENT per cycle) but within expected range for community oncology setting.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- LOS & ICU -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">4.3 & 4.4</span> Length of Stay (LOS) & ICU Admissions</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">LOS</div>
+        <ul>
+          <li>Mean / median inpatient days per admission</li>
+          <li>Total LOS: sum across all admissions during observation period</li>
+          <li>Cancer-related LOS vs all-cause LOS — typically reported separately</li>
+          <li>LOS drives a large proportion of total cancer care costs</li>
+          <li>30-day readmission + LOS = key payer quality metrics</li>
+        </ul>
+        <div class="card-eyebrow" style="margin-top:14px">ICU Admissions</div>
+        <ul>
+          <li>Revenue code 020x (ICU) on inpatient claim flags ICU stay</li>
+          <li>Rate per 100 patient-months; ICU LOS separately</li>
+          <li>Proxy for: severe AEs, end-of-life care intensity, treatment complication burden</li>
+          <li>High ICU use in oncology = potentially avoidable if AEs detected/managed earlier</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">LOS directly calculable from admission and discharge dates on UB-04 claims. ICU flagged by revenue code 020x. <strong>Most reliable source</strong> for LOS and ICU metrics across all care settings. Caveat: observation status stays (revenue code 0762) may mimic inpatient stays but are billed as outpatient — must distinguish true inpatient from observation status to avoid LOS inflation.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Flatiron records hospitalizations documented in the oncology system — but ICU stays at external facilities are invisible. If Flatiron is linked to a hospital EHR (Epic), LOS data may be available — but this is site-dependent and not universal across the Flatiron network. Do not use Flatiron as the sole source for LOS or ICU analyses.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>SCLC — CNS complications:</strong> Median LOS for SCLC patients admitted for CNS progression (brain mets, leptomeningeal disease): ~6 days. ICU admission rate for SVCS + respiratory failure in SCLC: ~2.4 per 100 patient-months — highest among solid tumors.<br/><br/>
+      <strong>mTNBC — sepsis:</strong> Median LOS for mTNBC patients hospitalized for sepsis (related to neutropenia): ~7 days. 30-day readmission rate: ~22% — significantly higher than non-neutropenic BC patients, supporting G-CSF prophylaxis value argument.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 5: SAFETY -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="safety" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 05</div>
+    <h2>Safety & Adverse Event Outcomes</h2>
+    <p>AE ascertainment in RWE is fundamentally different from trials — no protocol-mandated grading, no standardized collection windows. Understanding the limitations of each data source is essential.</p>
+  </div>
+
+  <!-- AE ascertainment overview -->
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-eyebrow">Core Challenge: AE Ascertainment Without CTCAE Grading</div>
+    <div class="grid-2" style="margin-top:12px">
+      <div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">CTCAE grades occasionally documented in structured fields; more often in free-text notes (NLP required). Lab values (ANC, ALT, creatinine) allow grade derivation for lab-based AEs. <strong>Coverage limited</strong> to events occurring at Flatiron-affiliated sites. Symptomatic AEs (nausea, fatigue) poorly captured in structured fields — documented in notes only.</p>
+      </div>
+      <div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">AEs identified via ICD-10 diagnosis codes on medical claims. Captures only AEs that prompted a medical encounter — <strong>asymptomatic or self-managed AEs are systematically missed</strong>. Grade not available (ICD-10 does not capture CTCAE grade). Sensitivity/specificity of ICD-based AE algorithms must be validated. Generally captures grade 3–4 AEs (which prompt hospitalization/ED visit).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- AE proxies -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">5.1</span> AE Ascertainment & Proxy Definitions</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>AE Type</th>
+            <th>ICD-10 Proxy (Claims)</th>
+            <th>EHR Approach</th>
+            <th>Limitation</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Febrile Neutropenia</strong></td>
+            <td>D70.x (neutropenia) + R50.x (fever) on same claim; or hospital admission with D70 principal dx</td>
+            <td>ANC < 500 + temperature > 38.3°C from structured labs/vitals; NLP for "febrile neutropenia" in notes</td>
+            <td>Claims: misses outpatient-managed FN (grade 3 managed without hospitalization). EHR: labs must be captured at the Flatiron site.</td>
+            <td>FN rate with SG in mTNBC: ~7% per cycle in ASCENT; real-world claims show ~5.2% per patient encounter (underestimate if mild cases managed at home)</td>
+          </tr>
+          <tr>
+            <td><strong>Peripheral Neuropathy</strong></td>
+            <td>G60.x, G62.x, G63.x (peripheral neuropathy codes); G57.x (lower extremity); G58.x (other)</td>
+            <td>NLP: "neuropathy," "tingling," "numbness" in notes; structured symptom fields if available; ECOG trajectory may reflect neuropathy burden</td>
+            <td>ICD codes for neuropathy have low specificity (pre-existing diabetic neuropathy will be captured). Requires exclusion of prior neuropathy at baseline (look-back period). EHR: grade not systematically recorded.</td>
+            <td>Neuropathy in SG-treated mTNBC: ~26% any grade in ASCENT; claims-based proxy identifies ~12–14% (underestimate, captures only encounter-prompted cases)</td>
+          </tr>
+          <tr>
+            <td><strong>Pneumonitis (irAE)</strong></td>
+            <td>J70.2 (acute drug-induced interstitial pneumonitis); J70.3; corticosteroid claim (≥40mg prednisone equivalent) within 30 days as supportive evidence</td>
+            <td>CT report NLP for "ground-glass opacity," "pneumonitis," "interstitial changes" + drug association; steroid prescription in structured order data</td>
+            <td>J70.2 non-specific — includes radiation pneumonitis, other drug-induced. Steroid use not pathognomonic for irAE. Specificity improved by requiring immunotherapy exposure in prior 90 days.</td>
+            <td>Pneumonitis in pembrolizumab-treated NSCLC: ~3.4% any grade in KEYNOTE-024; claims-based proxy identifies ~2.1% (grade 3–4 proxy: hospitalization + J70.2)</td>
+          </tr>
+          <tr>
+            <td><strong>Diarrhea / Colitis</strong></td>
+            <td>K59.1 (functional diarrhea); K52.x (colitis); K52.3 (indeterminate colitis) — for irAE context</td>
+            <td>Structured symptom field or NLP; colonoscopy order as downstream signal for severe colitis</td>
+            <td>Diarrhea is extremely non-specific in claims — must be temporally linked to drug exposure and exclude infectious etiology (A00-A09 codes). Grade 3 typically identified by hospitalization.</td>
+            <td>Diarrhea in abemaciclib-treated HR+/HER2−: ~82% any grade in MONARCH-2; claims capture only ~15% (severe enough to prompt medical encounter)</td>
+          </tr>
+          <tr>
+            <td><strong>Hepatotoxicity</strong></td>
+            <td>K71.x (drug-induced liver disease); R74.x (elevated LFTs as incidental finding); K75.x (inflammatory liver disease)</td>
+            <td>ALT/AST values from structured labs — grade 3: >5× ULN; grade 4: >20× ULN. Most reliable AE endpoint in EHR due to lab capture.</td>
+            <td>Claims K71.x requires a clinician to code drug-induced — often coded as unspecified hepatitis. Lab-based approach in EHR requires ALP/ALT/AST to be captured at the Flatiron site.</td>
+            <td>Hepatotoxicity with CDK4/6i in HR+/HER2−: grade ≥3 ALT elevation ~2.4% (ribociclib highest); EHR-based lab monitoring provides most accurate rate; claims underestimate 3–4×</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Lab-based -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">5.2</span> Lab-Based Safety Outcomes</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Key Lab-Derived AE Endpoints</div>
+        <ul>
+          <li><strong>Grade 3/4 Neutropenia:</strong> ANC < 1,000 (G3), < 500 (G4) cells/µL</li>
+          <li><strong>Grade 3/4 Thrombocytopenia:</strong> Platelets < 50,000 (G3), < 25,000 (G4)</li>
+          <li><strong>Grade 3 Hepatotoxicity:</strong> ALT/AST > 5× ULN</li>
+          <li><strong>Grade 3 Nephrotoxicity:</strong> Creatinine > 3× baseline or > 4.0 mg/dL</li>
+          <li><strong>QTc prolongation:</strong> > 500ms — relevant for ribociclib (CDK4/6i)</li>
+          <li>Lab-based AEs are the <strong>most accurate safety signal in EHR</strong></li>
+          <li>Require temporal linkage to drug exposure + exclusion of pre-existing abnormalities</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Structured lab values available in Flatiron's lab module. ANC, platelets, ALT, creatinine, QTc from ECG — all structured if ordered at affiliated site. <strong>Gold standard for lab-based AE grading in RWE</strong>. Caveat: lab completeness varies by site and drug (monitoring-intensive drugs like ribociclib have more complete QTc data than low-monitoring drugs). Baseline labs may be from prior to Flatiron enrollment — incomplete pre-index data for washout assessment.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Lab values not available</strong> in PharMetrics+ or any standard claims database. Lab results are not billed as claims — they appear in EHR/lab information systems, not administrative claims. G-CSF claims (J1440 filgrastim, J0897 pegfilgrastim) are used as an <em>indirect proxy</em> for Grade 3/4 neutropenia — treatment of the AE rather than the AE itself. This proxy has moderate sensitivity (~60%) for grade 3/4 FN.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>SCLC — ANC monitoring:</strong> Flatiron lab data shows median ANC nadir of 850 cells/µL at day 12 post carboplatin/etoposide cycle 1 in real-world SCLC cohort — lower than trial (1,200 cells/µL) due to poorer baseline marrow reserve. G-CSF prophylaxis (J0897 claims in PharMetrics+) used as neutropenia proxy in claims cohort.<br/><br/>
+      <strong>HR+/HER2− — QTc (Ribociclib):</strong> EHR-based QTc monitoring in Flatiron: 3.2% of ribociclib-treated patients had QTc > 480ms requiring dose hold — consistent with MONALEESA-2 (3.3%). Claims cannot detect this endpoint; only the dose hold (gap in fill) is detectable.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Treatment modifications as safety proxies -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">5.3</span> Treatment Modifications as Safety Proxies</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li>Dose reduction: switch to lower NDC strength (oral) or fewer units billed (IV) in subsequent cycle</li>
+          <li>Dose delay: gap in treatment longer than expected dosing interval but shorter than discontinuation gap</li>
+          <li>Dose hold: temporary stop followed by restart (same agent) — sub-type of dose delay</li>
+          <li>Treatment modifications are <strong>indirect safety signals</strong> — can result from AEs, patient preference, or physician caution</li>
+          <li>Composite metric: dose modification rate = (patients with ≥1 reduction or delay) / total patients</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-both">Both — Different Fidelity</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>EHR (Flatiron):</strong> Dose modifications directly documented in drug orders and administration records — most accurate source. Reason for modification sometimes in clinical notes (NLP-extractable).</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>Claims (PharMetrics+):</strong> Oral dose reduction: transition to lower-strength NDC. IV dose reduction: fewer units in J-code. Dose delay: longer-than-expected gap between infusion claims. These are indirect and have measurement error — especially for drugs with variable on/off schedules (palbociclib 3/1 cycle).</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>SG in mTNBC:</strong> Dose reduction rate in Flatiron real-world cohort: ~38% receive at least one dose reduction by cycle 3 (vs 26% in ASCENT). In PharMetrics+ claims: unit count per J-code claim (J9281 = sacituzumab govitecan) — patients with &lt;80% of expected units in cycle 3 vs cycle 1 = proxy for dose reduction. Sensitivity ~55% vs Flatiron reference.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 6: PRO & FUNCTIONAL -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="pro" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 06</div>
+    <h2>Patient-Reported & Functional Status Outcomes</h2>
+    <p>The patient experience in real-world settings — ECOG PS, PRO instruments, frailty, and comorbidity indices. These covariates are often as important as the outcomes themselves.</p>
+  </div>
+
+  <!-- ECOG -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">6.1</span> ECOG Performance Status</div>
+    <div class="outcome-subtitle">Standardized functional status scale (0–5); critical confounder in oncology RWE</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Clinical Relevance</div>
+        <div class="tbl-wrap" style="margin-bottom:12px">
+          <table>
+            <thead><tr><th>Grade</th><th>Description</th><th>Trial Eligibility</th></tr></thead>
+            <tbody>
+              <tr><td><strong>0</strong></td><td>Fully active, no restriction</td><td>✓ All trials</td></tr>
+              <tr><td><strong>1</strong></td><td>Restricted in physically strenuous activity; ambulatory</td><td>✓ All trials</td></tr>
+              <tr><td><strong>2</strong></td><td>Ambulatory; capable of self-care; up >50% of waking hours</td><td>Select trials only</td></tr>
+              <tr><td><strong>3</strong></td><td>Limited self-care; confined to bed/chair >50% of waking hours</td><td>Rarely eligible</td></tr>
+              <tr><td><strong>4</strong></td><td>Completely disabled; no self-care; confined to bed/chair</td><td>Excluded</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>ECOG PS is the <strong>most important confounder</strong> in oncology RWE — drives treatment selection and predicts outcomes independently</li>
+          <li>PS 0–1 in trials vs PS 0–2+ in real world = key population gap</li>
+          <li>PS trajectory over time: worsening PS predicts treatment discontinuation and OS independently</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">ECOG PS captured in Flatiron's structured data fields — but <strong>completeness varies by site and clinician documentation behavior</strong>. In Flatiron analyses, ~60–75% of patients have a baseline ECOG PS recorded. Missing not at random (MNAR): sicker patients may be less likely to have PS documented, biasing toward better apparent PS in the dataset. PS typically assessed at clinic visit — frequency varies.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>ECOG PS not available in claims</strong>. No ECOG code in ICD-10. Proxy approaches: (1) number of comorbidities as PS surrogate, (2) prior hospitalization as PS 3–4 indicator, (3) number of prior medications as surrogate for functional burden. None are validated against true ECOG. This is a fundamental confounding limitation of claims-based oncology studies.</p>
+        <div class="bias-alert" style="margin-top:10px"><div class="bias-label">⚠ Confounding Implications</div>Without ECOG adjustment, treatment comparisons in claims will favor therapies given to patients with better PS — a form of channeling bias. This is often the most cited limitation of claims-based comparative effectiveness studies in oncology.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>NSCLC real-world population:</strong> Flatiron-based NSCLC cohort: ~48% PS 0, ~39% PS 1, ~11% PS 2, ~2% PS 3/4 — vs KEYNOTE-024 (100% PS 0–1). Real-world OS lower than trial even after age adjustment because PS 2+ patients have substantially worse prognosis. Adjustment for PS in propensity models improves estimate validity.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- PRO Instruments -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">6.2</span> PRO Instruments in RWE</div>
+    <div class="outcome-subtitle">Validated questionnaires capturing patient-experienced symptoms, function, and quality of life</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Key Instruments by Tumor Type</div>
+        <div class="info-box teal"><strong>Breast Cancer:</strong> EORTC QLQ-C30 (global QoL, functional scales, symptom scales); QLQ-BR23 (breast-specific: arm symptoms, body image, sexual function); FACT-B; EQ-5D-5L (utility for cost-effectiveness)</div>
+        <div class="info-box blue"><strong>Lung Cancer:</strong> EORTC QLQ-C30 + QLQ-LC13 (lung-specific: dyspnea, cough, hemoptysis, peripheral neuropathy, alopecia); FACT-L; PRO-CTCAE (patient-reported symptom severity)</div>
+        <div class="info-box amber"><strong>Universal:</strong> EQ-5D (utility weight for QALY); PGIS/PGIC (patient global impression of severity/change); BPI (Brief Pain Inventory); FACIT-Fatigue</div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">PRO data in Flatiron is <strong>limited and site-dependent</strong>. Flatiron has deployed PRO collection at select sites (tablet-based PROMIS forms at clinic visits). Coverage is incomplete across the network. Where available, PROs are time-stamped and linked to treatment — enabling longitudinal HRQoL modeling. Pain scores and ECOG are the most commonly captured structured PROs. FACT/EORTC instruments are not routinely in standard Flatiron.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>PRO data does not exist in claims</strong>. Symptom codes (ICD-10 R-codes: R06.0 dyspnea, R52 pain) are a crude proxy, capturing only symptoms that prompted a medical encounter. Fatigue, nausea, cognitive impairment — largely invisible in claims. For PRO endpoints, registry data (SEER with PRO modules, disease-specific registries) or prospective EHR-linked PRO collection is required.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>NSCLC — PRO in KEYNOTE-024 vs RWE:</strong> Trial: pembrolizumab associated with statistically significant improvement in EORTC QLQ-C30 global health status vs chemotherapy. RWE: Flatiron PRO module data at select sites shows maintained global health status scores through 6 months of pembrolizumab treatment in PS 0–1 NSCLC — consistent directionally, but N is small and sites are non-representative.<br/><br/>
+      <strong>mTNBC — fatigue:</strong> Fatigue as a PRO endpoint is among the most clinically meaningful in mTNBC. ASCENT reports fatigue PRO via EORTC. Real-world fatigue invisible in claims — only proxied by HCRU for fatigue-related encounters (R53.83, malaise and fatigue) which captures &lt;10% of true burden.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Frailty & Comorbidity -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">6.3</span> Frailty & Comorbidity Indices</div>
+    <div class="outcome-subtitle">Claims-derivable composite scores capturing patient health burden — essential confounders</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Key Indices</div>
+        <div class="info-box teal" style="margin-bottom:8px">
+          <strong>Charlson Comorbidity Index (CCI):</strong> 17 comorbidity categories; weighted score; adapted for ICD-10 claims (Quan adaptation). Score ≥2 = significantly higher mortality risk. Standard covariate in oncology RWE.
+        </div>
+        <div class="info-box blue" style="margin-bottom:8px">
+          <strong>Elixhauser Index:</strong> 31 comorbidity categories; not collapsed to single score (used as indicator variables); better discrimination in hospital settings. Preferred in some HCRU analyses.
+        </div>
+        <div class="info-box amber">
+          <strong>Claims-Based Frailty Index (CFI):</strong> Kim et al. — derived from diagnostic, procedure, and DME claims in Medicare. Validated against geriatric frailty assessments. Applicable in Medicare; less validated in commercial claims.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">CCI derivable from 12-month look-back period claims. Highly reproducible; well-validated in oncology populations. <strong>Gold standard comorbidity adjustment in claims-based RWE</strong>. Caveat: CCI was developed for mortality prediction — comorbidities coded for billing purposes may not accurately reflect clinical severity. Upcoding (billing for more comorbidities to justify care complexity) can inflate CCI.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">CCI derivable from ICD codes in Flatiron's diagnosis data. However, EHR diagnoses reflect <em>active problem list coding</em>, not billing-driven coding — may be more clinically accurate but less complete (inactive comorbidities not consistently coded). ECOG PS provides complementary functional burden information unavailable in claims. Combined ECOG + CCI adjustment is the ideal confounding control in Flatiron studies.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>HR+/HER2− elderly patients:</strong> Propensity score model for CDK4/6i vs ET alone in Flatiron: ECOG PS + CCI + age + prior lines used as covariates. CCI distribution: median 1 (CDK4/6i arm) vs 2 (ET alone arm) — ET alone arm is sicker, confounding the comparison. IPTW using these covariates reduces standardized mean difference to &lt;0.1.<br/><br/>
+      <strong>SCLC — frailty:</strong> Claims-based frailty index (Medicare SCLC cohort) — frail patients (CFI ≥0.25) have 40% lower probability of receiving platinum-based chemotherapy at 1L, driving major selection bias in untreated control arm analyses.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 7: ECONOMIC -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="econ" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 07</div>
+    <h2>Economic & Cost Outcomes</h2>
+    <p>Real-world cost measurement is foundational for payer value demonstration, budget impact models, and cost-effectiveness analyses. Claims are the primary source; EHR lacks cost data.</p>
+  </div>
+
+  <div class="info-box red" style="margin-bottom:24px">
+    <strong>Global Caveat:</strong> Claims report <em>allowed amounts</em> (what payer + patient owe) or <em>paid amounts</em> (payer's portion). Neither reflects true net price after rebates, which are negotiated confidentially and not in claims. Cost analyses from PharMetrics+ represent gross spending, not net-of-rebate costs — this is a critical limitation when comparing drug cost across products with different rebate structures.
+  </div>
+
+  <!-- Total Cost -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">7.1</span> Total Cost of Care</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Components</div>
+        <ul>
+          <li>All-cause total costs = medical costs + pharmacy costs during observation period</li>
+          <li>Cancer-related costs: claims with cancer ICD-10 as primary diagnosis</li>
+          <li>PPPM (per patient per month): standardizes for variable follow-up durations</li>
+          <li>Components: drug acquisition, drug administration, hospitalizations, ED, outpatient, labs/imaging, supportive care</li>
+          <li>Incremental cost: cost difference between treatment arms (requires comparison group)</li>
+          <li>Index period: on-treatment vs. post-treatment cost profiles differ substantially</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Gold standard for cost analysis.</strong> Each claim has an allowed amount field. Medical + pharmacy claims provide complete cost picture within the insured plan. Pharmacy: dispensed drug + dispense fee. Medical: allowed amount per service. Limitation: costs vary dramatically by plan type (HMO vs PPO), geography, and negotiated rates — PharMetrics+ aggregates across plans, introducing heterogeneity. All amounts are gross (pre-rebate).</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Cost data not available</strong> in Flatiron. Charge data (what was billed) may be partially inferable from drug administration records (published WAC × units), but this is not standard practice and has high error. For cost outcomes, Flatiron must be linked to claims (e.g., Flatiron-IQVIA claims linkage) — not routinely available.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>mTNBC — SG vs chemo PPPM:</strong> PharMetrics+ analysis: Total all-cause PPPM cost during SG treatment: ~$28,000–$32,000 (drug cost dominant at ~$22,000/month WAC-based). vs capecitabine: ~$8,000–$10,000 PPPM (lower drug cost but comparable HCRU). Net value argument: SG HCRU savings partially offset higher drug cost — hospitalization rate difference of ~1.3 admissions/100 patient-months × $25,000/admission = ~$325 PPPM offset. Still net higher cost for SG.<br/><br/>
+      <strong>NSCLC — LOT-based cost escalation:</strong> Total cost of care increases with line of therapy: 1L pembrolizumab + chemo ~$18,000 PPPM; 2L docetaxel ~$9,000 PPPM (drug cost drops, HCRU rises). Total cost per patient higher in 1L due to better survival (more treatment months).
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Drug Cost -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">7.2</span> Drug Acquisition & Administration Costs</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Definition & Mechanics</div>
+        <ul>
+          <li><strong>Drug acquisition cost:</strong> cost of the drug itself (WAC in claims allowed amounts)</li>
+          <li><strong>Administration cost:</strong> infusion center visit, nursing, chair time — separate J-code claims</li>
+          <li>IV drugs: drug J-code + administration CPT code (96413, 96415 for chemo infusion)</li>
+          <li>Oral drugs: NDC pharmacy claim</li>
+          <li>Flat dosing vs. weight-based: flat dosing (pembrolizumab 200mg) eliminates dose variability — simplifies cost calculation</li>
+          <li>Administration cost difference: IV vs oral is a key payer consideration</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Drug cost directly from pharmacy claim allowed amounts (oral) or medical claim allowed amounts (IV J-code). Administration cost from CPT-coded infusion claims. <strong>Most granular and accurate source for drug cost decomposition.</strong> Caveat: J-code units × unit cost may not exactly match administered dose if billing conventions round units. Site of care (hospital outpatient vs community oncology infusion center) dramatically affects administration costs (hospital outpatient ~2–3× more expensive).</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Drug name and dose available in Flatiron administration records — allows WAC-based cost estimation (dose × published WAC price). Not actual paid amounts. Administration costs not derivable from EHR. This approach is used in published studies when claims are unavailable but is acknowledged as an approximation.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>IV vs Oral in HR+/HER2−:</strong> CDK4/6i (oral) administration cost ~$0 PPPM drug admin; vs IV fulvestrant ~$150–200 PPPM injection administration (CPT 96372). Over 12 months, oral CDK4/6i saves ~$1,800–2,400 in administration costs — meaningful for payer budget impact, though small relative to drug WAC ($10,000+ PPPM for palbociclib).
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- Cost Drivers -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">7.3</span> Cost Drivers, Payer Perspective & Budget Impact</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Key Concepts</div>
+        <ul>
+          <li>Hospitalization is the <strong>dominant non-drug cost driver</strong> in advanced cancer — $20,000–50,000 per admission</li>
+          <li>Budget impact model: (new drug cost − old drug cost) + (HCRU cost offset) = net budget impact</li>
+          <li>QALY framework: cost-effectiveness ratio (ICER) = incremental cost / incremental QALYs — standard for HTA submissions (ICER, NICE)</li>
+          <li>Willingness-to-pay threshold: ~$100,000–150,000/QALY (US); £20,000–30,000/QALY (NICE)</li>
+          <li>Biosimilar impact: entry of biosimilars (e.g., bevacizumab, trastuzumab) significantly reduces drug cost component</li>
+          <li>Specialty pharmacy: high-cost drugs dispensed through specialty channel — PBM restriction affects claims capture completeness</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">RWE Role in Economic Analysis</div>
+        <div class="info-box teal"><strong>HCRU inputs:</strong> Real-world hospitalization rates, ED visits, LOS feed budget impact models with observed (not trial) resource use — critical for payer-facing analyses where trial HCRU is underestimated.</div>
+        <div class="info-box amber"><strong>Survival inputs:</strong> Real-world OS/TTNT used as survival model inputs when trial data is immature or not representative — e.g., indirect treatment comparisons (ITC) using RWE as the anchor.</div>
+        <div class="info-box purple"><strong>Adherence inputs:</strong> Real-world PDC used to adjust expected drug cost (a non-adherent patient uses less drug but may incur more HCRU) — adherence-adjusted budget impact models.</div>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>SG budget impact (mTNBC):</strong> Payer perspective BIM: SG WAC ~$22,000/month vs standard chemo ~$3,000/month. Offset: SG reduces hospitalization by ~1.3 events/100PM × $28,000 = ~$364 PPPM savings. Net incremental cost: ~$19,000 PPPM. Payer willingness to reimburse driven by OS benefit (3-month median OS advantage in ASCENT). Value framework: cost per life-year gained vs $150,000 threshold.<br/><br/>
+      <strong>NSCLC biosimilar impact:</strong> Post-bevacizumab biosimilar entry (2019–2020), total drug cost for 1L NSCLC bevacizumab-containing regimens declined ~30% in PharMetrics+ claims. Budget impact of biosimilar uptake measurable in real-world claims — not in trials.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 8: METHODS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="methods" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 08</div>
+    <h2>Methodological Concepts</h2>
+    <p>SME-level mastery. These are the concepts that separate a senior RWE analyst from a junior one — understanding not just what they are, but when they apply and what they mean for your specific study.</p>
+  </div>
+
+  <!-- Accordions for methods -->
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.1</span> Index Date Definition</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept & Implications</div>
+        <ul>
+          <li><strong>Definition:</strong> The anchor date from which outcomes are measured and cohort entry is defined</li>
+          <li>Common index dates: (1) first cancer diagnosis, (2) metastatic/advanced diagnosis, (3) first claim for index drug, (4) line-of-therapy start date</li>
+          <li>Index date choice affects: measured OS, baseline covariate look-back window, follow-up duration, immortal time risk</li>
+          <li>Must be clinically and analytically defensible — pre-specified in SAP</li>
+          <li>Sensitivity analysis with alternative index dates is best practice</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Diagnosis date from pathology or structured diagnosis table — generally reliable. Metastatic diagnosis date from structured stage field or NLP from imaging reports. Drug start date from order/administration records. <strong>Multiple index date options available with good clinical fidelity.</strong></p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Diagnosis date = first ICD-10 claim — may reflect rule-out workup, not confirmed diagnosis. First drug claim is more reliable as index date. Metastatic diagnosis requires algorithm: first C78/C79 code OR first metastatic-intent drug claim (e.g., first CDK4/6i claim as proxy for mBC). <strong>Index date definition in claims is always an approximation with error.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.2</span> Immortal Time Bias</div>
+    <div class="outcome-subtitle">One of the most important and commonly occurring biases in pharmacoepidemiology</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept & Mechanics</div>
+        <div class="info-box red"><strong>Definition:</strong> A period during which the study outcome cannot occur by design — but is incorrectly included in the follow-up time of one group, artificially reducing their event rate.</div>
+        <ul style="margin-top:12px">
+          <li><strong>Classic scenario:</strong> Index date = diagnosis; treatment group defined by receiving drug A. Patients must survive until drug A initiation to be in the "treated" group — the time between diagnosis and drug initiation is immortal (they cannot die before receiving the drug or they'd be excluded) but is incorrectly counted as drug-exposure time</li>
+          <li>Results in spuriously <em>better</em> outcomes in the treated group</li>
+          <li><strong>Solution:</strong> New-user design (index date = drug initiation); time-conditional analysis; or landmark analysis</li>
+          <li>Common in studies comparing ever-users vs never-users when follow-up starts at a common date</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-both">Both</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Immortal time bias can occur in both EHR and claims — it is a study design issue, not a data source issue. However:</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>EHR (Flatiron):</strong> Clearer treatment start dates allow more precise identification and removal of immortal time. The risk is in how the analyst defines the cohort — if treated group is defined retrospectively after observing that patient received drug, immortal time can creep in.</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>Claims (PharMetrics+):</strong> More susceptible because treatment identification requires claims to accumulate — the period before the first drug claim (during which the patient is alive by definition) can be the immortal period. Particularly problematic when LOT algorithms require multiple claims to confirm treatment.</p>
+        <div class="ex-block" style="margin-top:10px">
+          <strong>NSCLC Example:</strong> Study of osimertinib 2L in EGFR+ NSCLC: if follow-up starts at metastatic diagnosis and treated group requires osimertinib claim (which comes weeks to months later), the pre-osimertinib period is immortal for the treated group. Correction: set index date = osimertinib first claim; censor untreated patients at equivalent time point.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.3</span> Left Truncation & Right Censoring</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concepts</div>
+        <div class="info-box teal"><strong>Right Censoring:</strong> Follow-up ends before the event occurs. Patient is censored at: end of study, database cutoff, insurance disenrollment, or last known contact date. Assumes censoring is non-informative (independent of the outcome) — a key assumption that is often violated.</div>
+        <div class="info-box amber" style="margin-top:10px"><strong>Left Truncation (Delayed Entry):</strong> Patients who die or experience the event <em>before</em> they could enter the study are excluded — creating a survivor bias. Common when database entry requires enrollment for a look-back period (e.g., 6 months), excluding patients who died in those 6 months.</div>
+        <div class="info-box purple" style="margin-top:10px"><strong>Administrative Censoring:</strong> Informative censoring where end-of-enrollment is related to health status (e.g., sickest patients lose commercial insurance → disenroll → censored at disenrollment → OS overestimated).</div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Right censoring at disenrollment</strong> is a major issue in commercial claims. Patients who become too ill to work (lose employer-sponsored coverage), transition to Medicare (age 65), or die will appear as disenrolled. Disenrollment-censored patients are systematically sicker — <em>informative censoring</em> that biases OS and TTNT upward (survivors appear to last longer). Minimum enrollment requirement (6 months) introduces left truncation — patients who died early are excluded, biasing toward healthier cohort.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Right censoring at last known activity date (last clinic visit). Patients who transfer care are censored — transfer may be correlated with progression/deterioration (informative). Left truncation: patients who progressed and died before presenting to a Flatiron-affiliated oncologist are excluded. Flatiron's death linkage mitigates right censoring bias for OS specifically.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.4</span> Landmark Analysis</div>
+    <div class="outcome-subtitle">Fixing a time point to eliminate immortal time and estimate conditional survival</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept & Applications</div>
+        <ul>
+          <li>A landmark time (t*) is fixed; only patients who have survived to t* are included in the analysis</li>
+          <li>Treatment groups are classified based on treatment status at t* (not retrospectively)</li>
+          <li>Eliminates immortal time if t* is set after the maximum possible time to treatment initiation</li>
+          <li>Also used for: conditional survival (given survival to 1 year, what is probability of surviving to 2 years?); post-response durability</li>
+          <li>Limitation: excludes early-event patients → results not generalizable to full population; sample size loss</li>
+        </ul>
+        <div class="formula" style="margin-top:12px">
+          <div class="formula-hdr"><span>Landmark Logic</span></div>
+          <pre><span class="cm">// t* = 6 months landmark</span>
+<span class="kw">Include:</span> patients alive at t<span class="op">*</span> <span class="op">=</span> <span class="num">6</span> months
+<span class="kw">Classify:</span> treatment status AT t<span class="op">*</span>
+<span class="kw">Measure:</span> OS from t<span class="op">*</span> forward
+<span class="cm">// Events before t* are excluded</span></pre>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-both">Both</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Landmark analysis is a study design approach applicable in both EHR and claims. The data requirements are: (1) accurate event/censoring dates, (2) treatment status at landmark time.</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>EHR advantage:</strong> More precise event dates (structured lab/imaging) allow tighter landmark windows without misclassification. Death date from mortality variable anchors OS calculation from landmark.</p>
+        <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px"><strong>Claims:</strong> Feasible with treatment status classifiable from claims at landmark date. Limitation: if patient switches plans between study start and landmark, continuity of data is disrupted — requires continuous enrollment through landmark date as inclusion criterion.</p>
+        <div class="ex-block" style="margin-top:10px"><strong>NSCLC Example:</strong> 6-month landmark analysis in NSCLC comparing OS by maintenance therapy status (maintenance pembrolizumab vs no maintenance) — patients who died or progressed before 6 months excluded; those alive at 6 months classified by maintenance status. Eliminates immortal time in the maintenance-treated group (who by definition had to survive 6 months to initiate maintenance).</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.5</span> Competing Risks</div>
+    <div class="outcome-subtitle">When multiple event types can preclude observation of the primary event</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept & Methods</div>
+        <ul>
+          <li><strong>Competing event:</strong> an event that prevents the primary event from occurring (e.g., death before progression prevents observation of progression as a distinct event)</li>
+          <li><strong>Problem with KM:</strong> KM treats competing events as censored — this <em>overestimates</em> the cumulative incidence of the primary event because it assumes censored patients have the same event rate as remaining patients (which is false — they're already dead)</li>
+          <li><strong>Cumulative Incidence Function (CIF):</strong> accounts for competing risks; gives probability of primary event in presence of competing risks — always ≤ KM estimate</li>
+          <li><strong>Fine-Gray subdistribution hazard model:</strong> regression analog for CIF (like Cox for KM)</li>
+          <li>Cause-specific hazard model: alternative — models hazard of primary event among those who have not experienced <em>any</em> event</li>
+        </ul>
+        <div class="formula" style="margin-top:12px">
+          <div class="formula-hdr"><span>When Competing Risks Matter</span></div>
+          <pre><span class="cm">// High competing risk scenario: SCLC</span>
+<span class="kw">Primary event:</span>    progression
+<span class="kw">Competing event:</span> death before progression
+<span class="cm">// KM(progression) >> CIF(progression)</span>
+<span class="cm">// because many SCLC patients die before</span>
+<span class="cm">// documented radiographic progression</span></pre>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Competing risk analysis most feasible in Flatiron — both the primary event (progression, from structured/NLP data) and competing event (death, from mortality variable) are available. Fine-Gray model implementable using SAS/R cmprsk package. <strong>Critical for SCLC studies</strong> where death before progression is common (~30–40% of patients). Also relevant for TTNT vs death analyses.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">For TTNT analyses: death before next treatment is a competing event. In PharMetrics+, death is not captured reliably — treating disenrollment as censoring conflates death (competing event) with loss to follow-up (non-informative censoring). This causes overestimation of TTNT in commercial claims vs Medicare or EHR. Sensitivity analysis assuming disenrollment = death (at one extreme) and disenrollment = censored (at the other) brackets the true estimate.</p>
+      </div>
+    </div>
+    <div class="ex-tag">Example</div>
+    <div class="ex-block">
+      <strong>SCLC — progression vs death:</strong> CIF for disease progression in SCLC at 6 months: 58% by KM; 42% by Fine-Gray CIF — a clinically meaningful difference. The gap reflects the high proportion of SCLC patients who die before radiographic progression is documented. Fine-Gray model is the appropriate method; reporting KM alone overstates progression risk.<br/><br/>
+      <strong>HR+/HER2− — distant recurrence:</strong> Competing risk of death from non-cancer causes in older HR+ BC survivors — using CIF vs KM changes 10-year distant recurrence estimates by ~5–8 percentage points in patients aged 70+.
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.6</span> Informative Censoring & IPCW</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept</div>
+        <ul>
+          <li><strong>Non-informative censoring assumption:</strong> KM requires that censored patients have the same prognosis as those remaining under observation — often violated</li>
+          <li><strong>Informative censoring:</strong> patients who are censored are systematically different from those who remain observed (e.g., patients who disenroll from insurance because they are too ill)</li>
+          <li>Causes: administrative (plan switch), informative (illness-driven), loss to follow-up (unknown reason)</li>
+          <li><strong>IPCW (Inverse Probability of Censoring Weighting):</strong> weights each subject by the inverse of their probability of remaining uncensored — upweights patients who remain observable and are similar to those who were censored. Requires modeling censoring probability as a function of covariates.</li>
+          <li>Sensitivity analyses: best-case (censored patients assumed event-free), worst-case (censored patients assumed immediate event), tipping point analysis</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Most susceptible to informative censoring. <strong>Disenrollment is the dominant censoring mechanism</strong> and is strongly correlated with health status (disease progression drives loss of employment → loss of commercial insurance). IPCW is appropriate but requires covariates that predict censoring — available from pre-disenrollment claims (HCRU escalation, new diagnoses). IPCW analysis in PharMetrics+ is considered best practice for OS-adjacent analyses.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Informative censoring from care transfer. If a patient progresses and moves to a specialized center (not Flatiron-affiliated), they disappear from the database — but their last Flatiron visit may appear uneventful. IPCW less critical in Flatiron because death linkage reduces the most informative form of censoring (dying patients are not just censored, they're captured via mortality variable).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.7</span> Confounding & Adjustment Methods</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Key Methods</div>
+        <div class="info-box teal"><strong>Propensity Score Matching (PSM):</strong> Each treated patient matched to an untreated patient with similar PS (probability of receiving treatment given covariates). Creates matched pairs. Discards unmatched patients — reduces sample size. Balance assessed by standardized mean differences (SMD &lt; 0.1 threshold).</div>
+        <div class="info-box blue" style="margin-top:8px"><strong>IPTW (Inverse Probability of Treatment Weighting):</strong> Each patient weighted by inverse of their treatment probability. Treated patients who were unlikely to receive treatment (PS low) get high weight; untreated patients who were likely to receive treatment get high weight. Preserves full sample — preferred over PSM for efficiency.</div>
+        <div class="info-box amber" style="margin-top:8px"><strong>Active Comparator, New-User Design:</strong> Both groups initiating a new treatment at the same time — avoids prevalent user bias (long-term survivors in one group). Gold standard for comparative effectiveness.</div>
+        <div class="info-box purple" style="margin-top:8px"><strong>Negative Control Outcomes:</strong> An outcome causally unrelated to the treatment — if found significant, suggests unmeasured confounding. E.g., testing if a cancer drug reduces fracture risk (implausible) — if it appears to, there is confounding.</div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Richer covariate set for propensity model: ECOG PS, biomarker status (ER/PR/HER2, EGFR, PD-L1), prior treatment history, lab values, comorbidities. <strong>Better confounding control possible in Flatiron</strong> due to clinical variables. Key limitation: unmeasured confounders that exist in clinical notes but are not extracted. SMD balance is more meaningful in EHR because important clinical confounders are included.</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Propensity model in claims is limited to: age, sex, region, plan type, comorbidities (CCI/Elixhauser), prior HCRU, prior medications, calendar year. <strong>ECOG PS, biomarker status, and stage — all unavailable.</strong> Residual confounding is a fundamental limitation — no amount of statistical sophistication overcomes unmeasured clinical confounders. Claims-based comparative effectiveness in oncology should be interpreted cautiously.</p>
+        <div class="ex-block" style="margin-top:10px"><strong>HR+/HER2− Example:</strong> IPTW comparison of palbociclib + AI vs ribociclib + AI in Flatiron: propensity model includes ECOG PS, CCI, prior ET lines, visceral involvement, de novo vs relapsed mBC — achieves SMD &lt; 0.1 on all covariates. Same comparison in PharMetrics+ without PS achieves SMD &lt; 0.1 on demographic/administrative variables but cannot adjust for ECOG or visceral disease — residual confounding remains substantial.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <div class="outcome-block">
+    <div class="outcome-title"><span class="outcome-num">8.8</span> External Control Arms (ECA)</div>
+    <div class="outcome-subtitle">Using RWD to construct a synthetic control arm for single-arm trials</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-eyebrow">Concept & Applications</div>
+        <ul>
+          <li>When a randomized control arm is unethical or infeasible (rare disease, accelerated approval setting), RWD patients matching the trial population serve as the comparator</li>
+          <li>ECA patients: must meet the same eligibility criteria as the trial (applied retroactively to RWD)</li>
+          <li>Statistical methods: propensity score matching, IPTW, standardization to trial population (g-computation)</li>
+          <li>FDA guidance (2023): acknowledges ECA utility but emphasizes fitness-for-purpose assessment — data quality, population representativeness, outcome ascertainment equivalence</li>
+          <li>Key validity threats: trial eligibility criteria not fully capturable in RWD (ECOG, lab values, staging); immortal time if index date differs between trial and RWD; endpoint equivalence (trial RECIST PFS vs RWD TTNT)</li>
+          <li>Propensity score trimming: removes RWD patients with PS outside trial range (ensures positivity)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">EHR vs Claims Caveats</div>
+        <div class="ds-row"><span class="ds-badge ds-ehr">EHR · Flatiron</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)"><strong>Preferred for ECA construction</strong> — clinical variables (ECOG, biomarkers, staging) enable more complete eligibility criterion application. Flatiron is the most commonly used ECA source in FDA submissions for oncology. Limitations: eligibility criterion completeness (some lab-based criteria need complete lab data), and outcome equivalence (trial PFS vs. rwPFS via Flatiron NLP — not identical).</p>
+        <div class="ds-row" style="margin-top:10px"><span class="ds-badge ds-claims">Claims · PharMetrics+</span></div>
+        <p style="font-size:13.5px;color:var(--text-muted)">Claims-based ECA is <strong>weaker</strong> due to inability to apply clinical eligibility criteria (ECOG, lab thresholds, imaging findings). More appropriate for HCRU or economic comparisons in ECA context than for survival endpoints. Claims ECAs are used when the only available endpoint is treatment-based (TTNT) rather than progression-based.</p>
+        <div class="ex-block" style="margin-top:10px"><strong>SCLC Example:</strong> Lurbinectedin received accelerated approval in SCLC 2L based on single-arm basket trial (ORR endpoint). ECA from Flatiron constructed to estimate OS advantage vs topotecan SOC — Flatiron SCLC 2L patients matched on prior platinum sensitivity, ECOG PS, and LDH. FDA reviewed but required additional data — ECA served as supporting, not pivotal, evidence.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 9: DATA SOURCES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="datasources" class="section">
+<div class="content-wrap">
+  <div class="section-header">
+    <div class="eyebrow">Section 09</div>
+    <h2>Data Sources — Head-to-Head Comparison</h2>
+    <p>Choosing the right data source is the first and most consequential decision in any RWE study. Know the strengths, weaknesses, and unique use cases of each source.</p>
+  </div>
+
+  <!-- Master comparison table -->
+  <div class="tbl-wrap" style="margin-bottom:32px">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Flatiron Health EHR</th>
+          <th>PharMetrics Plus (Claims)</th>
+          <th>SEER / SEER-Medicare</th>
+          <th>Optum Clinformatics</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Population</strong></td>
+          <td>Treated oncology patients at affiliated community + academic oncology sites (~280+ sites, ~800 oncologists)</td>
+          <td>Commercially insured working-age adults + dependents (~150M lives)</td>
+          <td>Population-based US cancer registry (~28% US population); SEER-Medicare links to Medicare claims</td>
+          <td>Commercially insured + Medicare Advantage (~20M lives); Clinformatics = commercial; Humedica = EHR</td>
+        </tr>
+        <tr>
+          <td><strong>Death Ascertainment</strong></td>
+          <td>✓ SSA linkage + obituary algorithm → real-world mortality variable (~85–90% complete)</td>
+          <td>✗ Not reliably available; disenrollment used as proxy (informative censoring risk)</td>
+          <td>✓ NDI linkage → cause-specific death; gold standard for mortality research</td>
+          <td>✓ Partial SSA linkage in some versions; Medicare Advantage linked to NDI</td>
+        </tr>
+        <tr>
+          <td><strong>Biomarker / Stage</strong></td>
+          <td>✓ ER/PR/HER2, EGFR, ALK, PD-L1, KRAS, BRCA from structured pathology + genomics</td>
+          <td>✗ Not available; drug claims used as proxy (e.g., EGFR TKI claim → EGFR+ proxy)</td>
+          <td>Partial — stage at diagnosis from registry; biomarkers increasingly included in recent SEER years</td>
+          <td>✗ Limited; some lab codes linkable but biomarker results not available</td>
+        </tr>
+        <tr>
+          <td><strong>ECOG PS</strong></td>
+          <td>✓ Structured field (~60–75% completeness); best available PS data in RWE</td>
+          <td>✗ Not available; CCI/prior HCRU as proxies only</td>
+          <td>✗ Not in SEER; partially in SEER-Medicare via billing codes</td>
+          <td>✗ Not available</td>
+        </tr>
+        <tr>
+          <td><strong>Lab Values</strong></td>
+          <td>✓ ANC, CBC, ALT/AST, creatinine, LDH — structured lab module</td>
+          <td>✗ Not available</td>
+          <td>✗ Not in SEER; Medicare claims include lab billing codes but not results</td>
+          <td>Partial — lab billing codes in claims; Humedica EHR component has results</td>
+        </tr>
+        <tr>
+          <td><strong>Treatment / Drug Data</strong></td>
+          <td>✓ Structured therapy tables (drug name, dose, schedule, route) — most complete for oncology</td>
+          <td>✓ Pharmacy + medical claims (NDC, HCPCS/J-codes) — complete for billed services; misses samples and unreimbursed drugs</td>
+          <td>SEER: no treatment. SEER-Medicare: Medicare-billed treatments only (J-codes, pharmacy Part D)</td>
+          <td>✓ Claims-based (same as PharMetrics); some EHR drug data in Humedica component</td>
+        </tr>
+        <tr>
+          <td><strong>HCRU / Cost</strong></td>
+          <td>✗ Limited to Flatiron-affiliated encounters; not comprehensive; no cost data</td>
+          <td>✓ Gold standard; all billed services with allowed/paid amounts; complete HCRU picture</td>
+          <td>SEER-Medicare: Medicare-paid HCRU and costs; elderly population only</td>
+          <td>✓ Same as PharMetrics for claims component; comprehensive HCRU and costs</td>
+        </tr>
+        <tr>
+          <td><strong>PRO / QoL Data</strong></td>
+          <td>Partial — select sites with PRO modules (PROMIS); not network-wide</td>
+          <td>✗ Not available</td>
+          <td>✗ Not in standard SEER</td>
+          <td>✗ Not available</td>
+        </tr>
+        <tr>
+          <td><strong>Sample Size (Oncology)</strong></td>
+          <td>Moderate — ~3M cancer patients in dataset; subset by tumor type and LOT</td>
+          <td>Large — ~150M lives; smaller oncology subsets (rare tumors: very small N)</td>
+          <td>SEER: population-based; SEER-Medicare: ~500K+ cancer patients with Medicare linkage</td>
+          <td>Large — ~20M+; oncology subsets moderate</td>
+        </tr>
+        <tr>
+          <td><strong>Best Use Case</strong></td>
+          <td>Clinical characterization, survival outcomes (OS, rwPFS), biomarker-stratified analyses, ECA construction, safety (lab-based AEs)</td>
+          <td>HCRU, cost analyses, treatment patterns (adherence, LOT, switching), large-sample epidemiology, comparative effectiveness with administrative outcomes</td>
+          <td>Population-based incidence/prevalence, mortality trends, cause-specific survival, long-term epidemiology</td>
+          <td>HCRU + cost (same as PharMetrics); Medicare Advantage subgroup allows elderly analyses with better death capture</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Endpoint feasibility matrix -->
+  <div class="section-header">
+    <h2 style="font-size:20px">Endpoint Feasibility by Data Source</h2>
+    <p style="margin-top:6px">✓ = Directly measurable | ~ = Proxy/Approximate | ✗ = Not feasible</p>
+  </div>
+
+  <div class="tbl-wrap" style="margin-bottom:32px">
+    <table>
+      <thead>
+        <tr>
+          <th>Endpoint</th>
+          <th>Flatiron EHR</th>
+          <th>PharMetrics+ Claims</th>
+          <th>SEER-Medicare</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Overall Survival (OS)</strong></td><td>✓ (SSA linkage)</td><td>✗ (disenrollment proxy only)</td><td>✓ (NDI linkage)</td></tr>
+        <tr><td><strong>PFS / rwPFS</strong></td><td>~ (NLP-based)</td><td>✗</td><td>✗</td></tr>
+        <tr><td><strong>TTNT</strong></td><td>✓</td><td>✓</td><td>~ (Medicare Part D only)</td></tr>
+        <tr><td><strong>TTD</strong></td><td>✓</td><td>✓ (oral ✓; IV ~)</td><td>~</td></tr>
+        <tr><td><strong>DOR</strong></td><td>~ (structured/NLP response)</td><td>✗</td><td>✗</td></tr>
+        <tr><td><strong>EFS / DRFS / RFS</strong></td><td>~ (NLP-derived)</td><td>~ (proxy algorithm)</td><td>✗</td></tr>
+        <tr><td><strong>Incidence</strong></td><td>✗ (not population-based)</td><td>~ (insured pop only)</td><td>✓</td></tr>
+        <tr><td><strong>Prevalence</strong></td><td>~ (treated pop only)</td><td>~ (insured pop only)</td><td>✓</td></tr>
+        <tr><td><strong>Cause-Specific Mortality</strong></td><td>✗</td><td>✗</td><td>✓</td></tr>
+        <tr><td><strong>SMR</strong></td><td>~ (with SSA linkage)</td><td>✗</td><td>✓</td></tr>
+        <tr><td><strong>LOT Assignment</strong></td><td>✓ (pre-built Enhanced variable)</td><td>~ (analyst-built algorithm)</td><td>~</td></tr>
+        <tr><td><strong>PDC / MPR (Adherence)</strong></td><td>✗ (orders only)</td><td>✓ (oral agents)</td><td>~ (Part D oral only)</td></tr>
+        <tr><td><strong>RDI</strong></td><td>✓ (dose in admin records)</td><td>~ (units in J-codes)</td><td>✗</td></tr>
+        <tr><td><strong>Hospitalization Rate</strong></td><td>~ (affiliated sites only)</td><td>✓</td><td>✓</td></tr>
+        <tr><td><strong>ED Visits</strong></td><td>~ (affiliated sites only)</td><td>✓</td><td>✓</td></tr>
+        <tr><td><strong>Total Cost of Care</strong></td><td>✗</td><td>✓</td><td>✓ (Medicare only)</td></tr>
+        <tr><td><strong>Drug Cost</strong></td><td>~ (WAC estimation)</td><td>✓</td><td>~ (Medicare Part D)</td></tr>
+        <tr><td><strong>Lab-Based AEs (ANC, ALT)</strong></td><td>✓</td><td>✗</td><td>✗</td></tr>
+        <tr><td><strong>ICD-Based AE Proxies</strong></td><td>~ (encounter-based)</td><td>✓ (most complete)</td><td>✓</td></tr>
+        <tr><td><strong>ECOG PS</strong></td><td>~ (60–75% complete)</td><td>✗</td><td>✗</td></tr>
+        <tr><td><strong>Biomarker Status</strong></td><td>✓</td><td>✗</td><td>Partial (recent years)</td></tr>
+        <tr><td><strong>PROs / QoL</strong></td><td>~ (select sites only)</td><td>✗</td><td>✗</td></tr>
+        <tr><td><strong>Comorbidity (CCI)</strong></td><td>✓ (from ICD codes)</td><td>✓ (from ICD codes)</td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Quick reference cards -->
+  <div class="section-header">
+    <h2 style="font-size:20px">Quick Reference: Which Data Source for Which Question?</h2>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-eyebrow" style="color:var(--teal)">Use Flatiron EHR When</div>
+      <ul>
+        <li>OS is the primary endpoint (death linkage available)</li>
+        <li>Biomarker-stratified analysis (EGFR, PD-L1, BRCA)</li>
+        <li>ECOG PS is a key covariate or stratifier</li>
+        <li>Lab-based safety endpoints (ANC, LFTs)</li>
+        <li>rwPFS or DOR (response capture)</li>
+        <li>External control arm for regulatory submission</li>
+        <li>Dose intensity / RDI analysis</li>
+        <li>Clinical characterization of a treated population</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow" style="color:var(--blue)">Use PharMetrics+ Claims When</div>
+      <ul>
+        <li>HCRU is the primary endpoint (hospitalization, ED)</li>
+        <li>Total cost of care or payer budget impact</li>
+        <li>Oral drug adherence (PDC, MPR)</li>
+        <li>Treatment switching and sequencing (large N)</li>
+        <li>TTNT in absence of clinical progression data</li>
+        <li>Disparities in treatment access by payer type</li>
+        <li>Large sample needed (rare tumor subtypes)</li>
+        <li>TTI and care pathway analyses</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-eyebrow" style="color:var(--amber)">Use SEER / SEER-Medicare When</div>
+      <ul>
+        <li>Population-based incidence or prevalence</li>
+        <li>Cause-specific mortality or SMR</li>
+        <li>Long-term survivorship (10+ year follow-up)</li>
+        <li>Elderly population (65+ with complete Medicare data)</li>
+        <li>Geographic or racial/ethnic disparity analyses</li>
+        <li>Temporal trends in cancer burden</li>
+        <li>Stage at diagnosis and stage migration analyses</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spacer"/>
+
+  <!-- Interview tip accordions -->
+  <div class="section-header">
+    <h2 style="font-size:20px">Common Interview Questions — SME Answers</h2>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="acc-q">Why can't you use PharMetrics+ to measure Overall Survival?<span class="acc-arrow">›</span></div>
+    <div class="acc-a">PharMetrics Plus is a commercial claims database and does not include a reliable death variable. Patients exit the database through disenrollment, which is a composite of events: death, plan switching, aging into Medicare (at 65), employer change, or loss of employment. Because disenrollment is informatively correlated with health status — the sickest patients are most likely to disenroll through death or disability — using disenrollment as a censoring event for OS analyses introduces informative censoring, which biases OS estimates upward (survivors appear to live longer than they truly do). The appropriate databases for OS in the US are Flatiron (SSA/obituary linkage), SEER-Medicare (NDI linkage), or Optum Medicare Advantage (with death linkage). If you must use PharMetrics+ for a study where OS is relevant, you can run a sensitivity analysis treating all disenrollments as deaths (worst case), compare to treating all as censored (best case), and use the spread to characterize uncertainty — but this is a limitation, not a solution.</div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="acc-q">How do you define progression-free survival in a claims database?<span class="acc-arrow">›</span></div>
+    <div class="acc-a">You can't — at least not directly. Claims databases contain no imaging results, RECIST assessments, or clinical progression notes. PFS as defined in trials (radiographic progression by RECIST 1.1) is not observable in claims. The standard approach is to use TTNT (time to next treatment) as a surrogate for PFS. TTNT is defined as the time from index regimen start to the first claim for a new systemic therapy, using a pre-specified gap allowance (typically 30–60 days depending on tumor biology) to define when the index regimen ends. The validity of TTNT as a PFS surrogate has been examined in several cross-database validation studies — for example, Flatiron-based rwPFS and claims-based TTNT in HR+/HER2− breast cancer cohorts show moderate correlation (Pearson r ~0.65–0.75). The key caveats to acknowledge: TTNT will be longer than PFS if patients experience progression but do not immediately start next treatment (watchful waiting period); TTNT conflates progression-driven switches with toxicity-driven switches; and patients who die without receiving next treatment are handled differently (censored in TTNT, event in PFS if death is included). In your study SAP, you should pre-specify the gap allowance, state the rationale for the TTNT-as-PFS assumption, and conduct sensitivity analyses varying the gap allowance.</div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="acc-q">Walk me through how immortal time bias could affect a study comparing CDK4/6i to ET monotherapy in HR+/HER2− mBC.<span class="acc-arrow">›</span></div>
+    <div class="acc-a">Here's the classic scenario: Suppose the index date is defined as metastatic breast cancer diagnosis, and the treated group is defined as patients who ever received a CDK4/6i (palbociclib/ribociclib/abemaciclib) during follow-up. The time between the metastatic diagnosis and the first CDK4/6i claim — which could be days to months — is counted as exposure time for the "treated" group. During this pre-CDK4/6i period, the patient cannot have their event attributed to CDK4/6i exposure because they hadn't started it yet — but this time is included in the treatment arm's follow-up, artificially making the treated group look like it has fewer early events. The comparator group (ET monotherapy) does not have this delay, so its early event rate reflects true early risk. The result is a spuriously longer OS and PFS in the CDK4/6i group — not because CDK4/6i is more effective than it truly is, but because CDK4/6i patients had to survive long enough to start the drug to be classified as treated. The correct approach is a new-user design: set index date = date of CDK4/6i initiation for treated patients, and match comparators to an equivalent time point from their metastatic diagnosis. Alternatively, use a landmark analysis (e.g., 60-day landmark from metastatic diagnosis) to start follow-up only after the latest possible CDK4/6i initiation time.</div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="acc-q">When would you use Fine-Gray competing risk analysis instead of Kaplan-Meier in an oncology RWE study?<span class="acc-arrow">›</span></div>
+    <div class="acc-a">Fine-Gray competing risk analysis (specifically, the subdistribution hazard model) is appropriate whenever there are competing events — other events that preclude occurrence of the primary event — and you want to estimate the absolute probability (cumulative incidence) of the primary event accounting for those competing events. In oncology RWE, this applies most commonly when: (1) the endpoint is disease progression or cancer-specific recurrence and death from any cause is a competing event — this is especially relevant in SCLC, where many patients die before radiographic progression is documented; (2) the endpoint is treatment discontinuation due to toxicity and death or progression-driven discontinuation are competing events; (3) you are estimating time to hospitalization for a cancer-related AE and death is a competing event. The KM estimator treats competing events as censored, which violates the non-informative censoring assumption — the censored (dead) patients clearly have a different prognosis than those still at risk, causing KM to overestimate the cumulative incidence of the primary event. The degree of overestimation depends on the magnitude of the competing event rate — in SCLC (where death rates are very high), the difference between KM and CIF for progression can exceed 15–20 percentage points at 6 months. Always report both KM and CIF, acknowledge the difference, and state which is the primary analysis and why. For regression: use Fine-Gray subdistribution hazard model (cmprsk package in R) for CIF-based inference; use cause-specific Cox models if the mechanistic hazard (among those still at risk) is the question of interest.</div>
+  </div>
+
+  <div class="accordion" onclick="toggleAcc(this)">
+    <div class="acc-q">How would you design an external control arm for a single-arm SCLC trial using Flatiron data?<span class="acc-arrow">›</span></div>
+    <div class="acc-a">An ECA using Flatiron for SCLC would proceed in the following steps: First, define the target trial population precisely — map each eligibility criterion from the trial protocol to available Flatiron variables. For SCLC 2L, this typically includes: prior platinum-based chemotherapy (1 prior line), ECOG PS 0–2 (from Flatiron structured field), measurable disease (from imaging reports — NLP or structured data), no prior immunotherapy (if the trial excluded it), adequate organ function (from lab values — creatinine, ANC, LFTs). Second, apply criteria feasibility assessment: which criteria are fully capturable in Flatiron, which are partially capturable, and which are not capturable at all. For criteria that are not capturable (e.g., specific creatinine threshold), document the limitation and assess expected impact. Third, define the index date in the ECA to match the trial (first systemic therapy of 2L). Fourth, identify the outcome: OS (death from Flatiron mortality variable), TTNT (as rwPFS surrogate), or rwPFS via NLP. Fifth, apply propensity score methods — use IPTW or trimming to weight the ECA population to resemble the trial. Key covariates: ECOG PS, platinum sensitivity (sensitive vs resistant relapse: relapse >90 days from last platinum = sensitive), LDH, number of prior regimens, SCLC stage (limited vs extensive). Sixth, document all assumptions and limitations for FDA reviewers: what proportion of trial criteria were fully applied (aim for >80%), how missing data were handled, what sensitivity analyses were conducted. Finally, acknowledge that OS from Flatiron ECA vs single-arm trial OS comparison is hypothesis-generating and subject to confounding — the ECA is supporting evidence, not a substitute for a randomized comparator.</div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleAcc(el){
+  el.classList.toggle('open');
+}
+// Mini tab system (not used in current layout but preserved for extensibility)
+document.querySelectorAll('.mini-tab').forEach(tab=>{
+  tab.addEventListener('click',function(){
+    const group=this.dataset.group;
+    document.querySelectorAll(`.mini-tab[data-group="${group}"]`).forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll(`.mini-pane[data-group="${group}"]`).forEach(p=>p.classList.remove('active'));
+    this.classList.add('active');
+    document.querySelector(`.mini-pane[data-group="${group}"][data-pane="${this.dataset.pane}"]`).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
